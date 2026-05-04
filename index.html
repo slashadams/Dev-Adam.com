@@ -151,73 +151,142 @@
       
       <div class="projects-grid">
         
-        <!-- Project 1: OpenClaw -->
+        <!-- 1. Proxmox Homelab Cluster -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-meta">
+              <span>2025</span>
+            </div>
+            <h3>Proxmox Homelab Cluster</h3>
+          </div>
+          <div class="project-card-body">
+            <p>Two-node Proxmox VE cluster with ZFS replication providing high-availability virtualization for my entire home network. Configured live migration, automated backups, and centralized storage for all critical services.</p>
+            
+            <div class="project-tags">
+              <span>Proxmox VE</span>
+              <span>ZFS</span>
+              <span>High Availability</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">Details</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Architecture</a>
+          </div>
+        </div>
+
+        <!-- 2. Redundant Pi-hole DNS -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-meta">
+              <span>2025</span>
+            </div>
+            <h3>Redundant Pi-hole DNS</h3>
+          </div>
+          <div class="project-card-body">
+            <p>Dual Pi-hole instances configured for high-availability DNS-level ad and tracker blocking. Integrated with DHCP, custom blocklists, and local DNS overrides to deliver fast, private, and reliable resolution across the entire network.</p>
+            
+            <div class="project-tags">
+              <span>Pi-hole</span>
+              <span>DNS Failover</span>
+              <span>Self-Hosted</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">Details</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Configuration</a>
+          </div>
+        </div>
+
+        <!-- 3. Tandoor Recipe Scanner -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-meta">
+              <span>2025</span>
+            </div>
+            <h3>Tandoor Recipe Scanner</h3>
+          </div>
+          <div class="project-card-body">
+            <p>Custom application that scans physical recipes or PDFs using OCR and automatically uploads cleanly formatted recipes to a self-hosted Tandoor instance. Eliminates manual entry and keeps my recipe collection growing effortlessly.</p>
+            
+            <div class="project-tags">
+              <span>Python</span>
+              <span>OCR</span>
+              <span>Tandoor API</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">Details</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Demo</a>
+          </div>
+        </div>
+
+        <!-- 4. OpenClaw AI Agents -->
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
               <span>2025</span>
               <span>Featured</span>
             </div>
-            <h3>OpenClaw</h3>
+            <h3>OpenClaw AI Agents</h3>
           </div>
           <div class="project-card-body">
-            <p>A powerful multi-agent orchestration framework for building autonomous developer assistants. Features persistent memory, task flows, and seamless tool integration.</p>
+            <p>Multi-agent AI infrastructure built on OpenClaw with three specialized agents handling development, personal organization, and task routing. Includes persistent memory, tool integration, and Matrix-based communication.</p>
             
             <div class="project-tags">
-              <span>Node.js</span>
-              <span>Matrix</span>
+              <span>OpenClaw</span>
               <span>AI Agents</span>
+              <span>Matrix</span>
             </div>
           </div>
           <div class="project-card-footer">
-            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">View on GitHub</a>
-            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Live Demo</a>
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">Details</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Agents</a>
           </div>
         </div>
-        
-        <!-- Project 2: Peter Parser -->
+
+        <!-- 5. Self-Hosted Matrix Server -->
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
               <span>2025</span>
             </div>
-            <h3>Peter Parser</h3>
+            <h3>Self-Hosted Matrix Server</h3>
           </div>
           <div class="project-card-body">
-            <p>Intelligent workspace agent that manages context, memory, and project state across sessions. Built for long-term collaboration with AI systems.</p>
+            <p>Lightweight Matrix homeserver running Conduit (Rust) for secure, federated communication. Serves as the primary messaging layer for interacting with AI agents and private group communication, with proper reverse proxy and TLS setup.</p>
             
             <div class="project-tags">
-              <span>TypeScript</span>
-              <span>Memory Systems</span>
-              <span>CLI</span>
+              <span>Conduit</span>
+              <span>Matrix</span>
+              <span>Self-Hosting</span>
             </div>
           </div>
           <div class="project-card-footer">
-            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">View on GitHub</a>
-            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Documentation</a>
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">Details</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Setup</a>
           </div>
         </div>
-        
-        <!-- Project 3: TaskFlow -->
+
+        <!-- 6. Twingate Zero-Trust Access -->
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>2024</span>
+              <span>2025</span>
             </div>
-            <h3>TaskFlow</h3>
+            <h3>Twingate Zero-Trust Access</h3>
           </div>
           <div class="project-card-body">
-            <p>Durable task orchestration engine with support for detached jobs, reminders, and complex dependency graphs. Powers reliable background workflows.</p>
+            <p>Zero-trust networking layer using Twingate to securely expose self-hosted services without opening ports. Replaced traditional VPN with granular access policies, better auditability, and improved security posture.</p>
             
             <div class="project-tags">
-              <span>Node.js</span>
-              <span>Cron</span>
-              <span>State Machines</span>
+              <span>Twingate</span>
+              <span>Zero Trust</span>
+              <span>Networking</span>
             </div>
           </div>
           <div class="project-card-footer">
-            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">View on GitHub</a>
-            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Case Study</a>
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">Details</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Access</a>
           </div>
         </div>
         
