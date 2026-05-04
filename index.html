@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adam — Software engineer, AI builder, and creator of intelligent developer tools.">
+  <meta name="author" content="Adam">
+  <title>Adam • dev-adam.com</title>
+  
+  <!-- Tailwind CSS via CDN for rapid professional styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Favicon (using existing Astro asset if present) -->
+  <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+  
+  <style>
+    /* Tailwind script config for dark mode consistency */
+    script {
+      /* Tailwind will be configured in the script below */
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+
+  <!-- ============================================
+       HEADER / NAVIGATION
+       ============================================ -->
+  <header>
+    <nav class="container">
+      <div class="nav">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <span>adam</span>
+          <span class="text-xs font-mono tracking-[3px] text-zinc-500">dev</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <a href="#projects" 
+             class="btn btn-primary text-sm px-6 py-2.5 hidden md:inline-flex">
+            View Work
+          </a>
+          
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" 
+                  class="mobile-menu-btn md:hidden"
+                  aria-label="Toggle navigation">
+            <span class="text-2xl">☰</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       HERO / INTRO
+       ============================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+          <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+          <span class="text-sm text-zinc-400 font-medium tracking-wide">Open to new opportunities</span>
+        </div>
+        
+        <h1>Adam.</h1>
+        
+        <p class="text-2xl md:text-3xl text-zinc-300 font-light tracking-tight">
+          I build intelligent systems<br>
+          that make developers faster.
+        </p>
+        
+        <div class="hero-actions mt-8">
+          <a href="#projects" class="btn btn-primary px-8 py-3 text-base">
+            Explore Projects
+          </a>
+          <a href="#contact" class="btn btn-secondary px-8 py-3 text-base">
+            Get in Touch
+          </a>
+        </div>
+        
+        <div class="flex items-center gap-4 mt-12 text-sm text-zinc-500">
+          <div>Based in the digital realm</div>
+          <div class="w-px h-3 bg-zinc-800"></div>
+          <div>AI • Automation • Developer Tools</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT ME
+       ============================================ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p>Engineer, builder, and relentless optimizer of developer workflows.</p>
+      </div>
+      
+      <div class="about-grid">
+        <!-- Text Content -->
+        <div class="about-text">
+          <h3 class="text-3xl">Crafting the future,<br>one agent at a time.</h3>
+          
+          <p>I'm Adam, a software engineer specializing in <span class="highlight">AI agents</span>, automation infrastructure, and elegant developer tooling.</p>
+          
+          <p>With a deep focus on building systems that think, I create tools that amplify human capability — from intelligent parsers and task orchestrators to seamless integration layers.</p>
+          
+          <p>Currently exploring the frontier of multi-agent architectures and how they can transform how we build, deploy, and maintain software.</p>
+          
+          <div class="mt-8 flex flex-wrap gap-3">
+            <div class="px-4 py-2 bg-zinc-900 rounded-xl text-sm border border-zinc-800">
+              <span class="text-zinc-400">Expertise:</span> 
+              <span class="font-medium">Node.js • AI/ML • CLI Tools • Web Automation</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Visual / Avatar -->
+        <div class="about-image">
+          <div class="text-center">
+            <!-- Stylized avatar using emoji + gradient -->
+            <div class="avatar-placeholder">🧠</div>
+            <div class="mt-2 text-xs tracking-[2px] text-zinc-500 font-mono">SPECTRAL PARSER</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROJECTS GRID
+       ============================================ -->
+  <section id="projects" class="section bg-zinc-950">
+    <div class="container">
+      <div class="section-header">
+        <h2>Selected Projects</h2>
+        <p>A collection of tools and systems I've built to push the boundaries of developer productivity.</p>
+      </div>
+      
+      <div class="projects-grid">
+        
+        <!-- Project 1: OpenClaw -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-meta">
+              <span>2025</span>
+              <span>Featured</span>
+            </div>
+            <h3>OpenClaw</h3>
+          </div>
+          <div class="project-card-body">
+            <p>A powerful multi-agent orchestration framework for building autonomous developer assistants. Features persistent memory, task flows, and seamless tool integration.</p>
+            
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>Matrix</span>
+              <span>AI Agents</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">View on GitHub</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Live Demo</a>
+          </div>
+        </div>
+        
+        <!-- Project 2: Peter Parser -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-meta">
+              <span>2025</span>
+            </div>
+            <h3>Peter Parser</h3>
+          </div>
+          <div class="project-card-body">
+            <p>Intelligent workspace agent that manages context, memory, and project state across sessions. Built for long-term collaboration with AI systems.</p>
+            
+            <div class="project-tags">
+              <span>TypeScript</span>
+              <span>Memory Systems</span>
+              <span>CLI</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">View on GitHub</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Documentation</a>
+          </div>
+        </div>
+        
+        <!-- Project 3: TaskFlow -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-meta">
+              <span>2024</span>
+            </div>
+            <h3>TaskFlow</h3>
+          </div>
+          <div class="project-card-body">
+            <p>Durable task orchestration engine with support for detached jobs, reminders, and complex dependency graphs. Powers reliable background workflows.</p>
+            
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>Cron</span>
+              <span>State Machines</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="#" class="btn btn-secondary text-sm flex-1 justify-center">View on GitHub</a>
+            <a href="#" class="btn btn-primary text-sm flex-1 justify-center">Case Study</a>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="text-center mt-10">
+        <a href="https://github.com/slashadams" target="_blank" 
+           class="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors">
+          View all projects on GitHub 
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONTACT / FOOTER
+       ============================================ -->
+  <section id="contact" class="section">
+    <div class="container max-w-2xl text-center">
+      <h2 class="text-4xl mb-4">Let's build something remarkable.</h2>
+      <p class="text-lg text-zinc-400 mb-8 max-w-md mx-auto">
+        I'm always interested in ambitious projects, collaborations, and conversations about the future of AI tooling.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:adam@dev-adam.com" 
+           class="btn btn-primary px-10 py-3.5 text-base">
+          adam@dev-adam.com
+        </a>
+        <a href="https://github.com/slashadams" target="_blank"
+           class="btn btn-secondary px-10 py-3.5 text-base">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="text-sm text-zinc-500">
+          © 2025 Adam. Crafted with precision and a touch of dark magic.
+        </div>
+        
+        <div class="footer-links text-sm">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="https://github.com/slashadams" target="_blank">GitHub</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+  
+  <!-- Tailwind Configuration -->
+  <script>
+    // Tailwind custom config (extends dark palette)
+    function initializeTailwind() {
+      const style = document.createElement('style');
+      style.textContent = `
+        .btn-primary { background-color: #6366f1; }
+        .btn-primary:hover { background-color: #4f46e5; }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // Run on load
+    window.onload = function() {
+      initializeTailwind();
+    };
+  </script>
+
+</body>
+</html>
