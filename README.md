@@ -1,46 +1,50 @@
-# Astro Starter Kit: Basics
+# Adam — Personal Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+A clean, dark-mode personal website for Adam (slashadams).
+
+**Live site:** [www.dev-adam.com](https://www.dev-adam.com)
+
+## Tech Stack
+
+- Pure HTML5 + CSS + JavaScript
+- Responsive design with Tailwind CSS (via CDN) + custom styles
+- Dark theme with subtle indigo accents
+- Hosted on GitHub Pages with custom domain via Cloudflare
+
+## Project Structure
+
+```
+/dev-adam.com
+├── index.html          # Main portfolio page
+├── css/
+│   └── style.css       # Custom styles & dark theme
+├── js/
+│   └── script.js       # Mobile nav + interactions
+├── favicon.svg
+├── CNAME               # Custom domain config
+├── .nojekyll           # Disable Jekyll processing
+└── README.md
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Local Development
 
-## 🚀 Project Structure
+Just open `index.html` in a browser. No build step required.
 
-Inside of your Astro project, you'll see the following folders and files:
+For a local server (recommended):
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npx serve .
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Deployment
 
-## 🧞 Commands
+- **GitHub Pages** (current)
+- Custom domain: `www.dev-adam.com` (via Cloudflare DNS + redirect)
 
-All commands are run from the root of the project, from a terminal:
+## License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Personal project. Feel free to fork and adapt for your own use.
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Built with care by Peter Parser.
