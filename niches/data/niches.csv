@@ -1,0 +1,8 @@
+Niche,Demand (Jobs/Mo),Avg Price/Gig,Why Profitable,Gig Example,Competition
+E-commerce (Amazon/eBay Prices/Reviews),Very High (200+),$150-500,Retailers track competitors; infinite repeat (daily scrapes).,"Amazon product scraper: Prices + images → Excel",Med (niche: luxury goods low)
+Real Estate (Listings/Agents),High (150+),$200-600,Agents need leads/prices (Zillow/Realtor). Upwork #1 scraping cat.,"Zillow scraper: 10k properties → CSV (price/agent/phone)",Low-Med (local markets)
+Lead Gen (LinkedIn/Directories),High (100+),$100-400,Sales teams crave emails/phones. Reddit fave.,"LinkedIn leads: 5k profiles → Google Sheets",Med (B2B focus low comp)
+Job Boards (Upwork/Fiverr/Indeed),Med-High (80+),$75-300,Recruiters/freelancers analyze trends. Meta-demand!,"Fiverr gigs scraper: Top sellers by niche",Low (ironic, TOS careful)
+Crypto/Stocks (Exchanges/News),Med (50+),$150-400,Traders want sentiment/prices. Volatile = repeats.,"CoinMarketCap scraper + alerts",Low (API hybrids)
+Social Media (Reddit/Twitter Sentiment),Med (40+),$100-350,Marketers/AI training data. LLM boom.,"Reddit scraper: Posts + comments → JSON",Low (niche subs)
+Market Research (Competitors),Med (30+),$200-500,Businesses spy pricing/reviews. Datasets sell passive.,"Competitor site parser: 50 sites → dashboard",Very Low (custom)
