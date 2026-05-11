@@ -1,0 +1,34 @@
+---
+layout: default
+title: Blog
+description: Writing about AI agents, developer tools, and building things that work.
+---
+
+<section style="padding:4rem 0">
+  <div class="container" style="max-width:720px">
+    <header style="margin-bottom:3rem">
+      <h1 style="font-size:2.5rem;margin:0 0 0.75rem">Blog</h1>
+      <p style="color:var(--text-secondary);font-size:1.1rem;margin:0">Building AI agents, developer tools, and internet-enabled products.</p>
+    </header>
+
+    {% for post in site.posts %}
+    <article style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;margin-bottom:1.5rem;transition:border-color 0.2s" 
+             onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+      <p style="color:var(--text-muted);font-size:0.8rem;margin:0 0 0.5rem">{{ post.date | date: "%B %d, %Y" }}</p>
+      <h2 style="font-size:1.35rem;margin:0 0 0.75rem">
+        <a href="{{ post.url }}" style="color:var(--text-primary);text-decoration:none">{{ post.title }}</a>
+      </h2>
+      <p style="color:var(--text-secondary);font-size:0.95rem;margin:0 0 1rem;line-height:1.6">
+        {{ post.excerpt | strip_html | truncatewords: 40 }}
+      </p>
+      <a href="{{ post.url }}" style="color:var(--accent-light);font-size:0.9rem;font-weight:500">Read more →</a>
+    </article>
+    {% endfor %}
+
+    {% if site.posts.size == 0 %}
+    <div style="text-align:center;padding:4rem 0;color:var(--text-muted)">
+      <p style="font-size:1.2rem">No posts yet — check back soon!</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+  <meta name="author" content="Adam">
+  <title>{% if page.title %}{{ page.title | escape }} · Adam{% else %}Adam · dev-adam.com{% endif %}</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg-primary: #0a0a0a; --bg-secondary: #121212; --bg-card: #18181b; --bg-elevated: #27272a;
+      --text-primary: #fafafa; --text-secondary: #a1a1aa; --text-muted: #71717a;
+      --accent: #6366f1; --accent-hover: #4f46e5; --accent-light: #818cf8;
+      --border: #27272a; --border-light: #3f3f46;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; margin: 0; padding: 0; }
+    a { color: var(--accent-light); text-decoration: none; }
+    a:hover { color: var(--accent); }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .logo span { color: var(--accent); }
+    .logo:hover { color: var(--text-primary); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a.active { color: var(--accent-light); }
+    footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 3rem 0 2rem; margin-top: 4rem; }
+    .footer-content { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { color: var(--text-secondary); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+    @media (max-width: 768px) {
+      .nav-links { display: flex; gap: 1rem; font-size: 0.875rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="nav">
+        <a href="/" class="logo"><span>adam</span><span class="text-xs font-mono tracking-[3px] text-zinc-500">dev</span></a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/blog/" {% if page.url contains '/blog/' %}class="active"{% endif %}>Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="https://github.com/slashadams" target="_blank">GitHub</a>
+          <a href="/#contact">Contact</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.875rem;margin:0">&copy; {{ site.time | date: '%Y' }} Adam</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

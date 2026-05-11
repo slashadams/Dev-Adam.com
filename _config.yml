@@ -1,0 +1,26 @@
+# Jekyll config for dev-adam.com blog
+title: "Adam — Blog"
+description: "Building AI agents, developer tools, and internet-enabled products."
+url: "https://www.dev-adam.com"
+author: "Adam"
+
+# Blog settings
+permalink: /blog/:title/
+paginate: 5
+
+# Exclude from processing
+exclude:
+  - README.md
+  - .gitignore
+
+# Default layout for posts
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: "Adam"
+  - scope:
+      path: "blog.html"
+    values:
+      layout: default
