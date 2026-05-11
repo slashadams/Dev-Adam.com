@@ -3,6 +3,16 @@ title: "Adam — Blog"
 description: "Building AI agents, developer tools, and internet-enabled products."
 url: "https://www.dev-adam.com"
 author: "Adam"
+lang: en_US
+
+# SEO
+description: "Building AI agents, developer tools, and internet-enabled products. Creator of the AI Dungeon Master for D&D 5e."
+tags: [AI agents, D&D AI Dungeon Master, OpenClaw, developer tools, AI products]
+
+# Sitemap
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
 
 # Blog settings
 permalink: /blog/:title/

@@ -12,6 +12,25 @@ layout: default
     {% endif %}
   </header>
 
+  <!-- Article Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title | escape }}",
+    "description": "{{ page.excerpt | strip_html | truncatewords: 30 | escape }}",
+    "author": {
+      "@type": "Person",
+      "name": "Adam"
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    }
+  }
+  </script>
+
   <div class="blog-content" style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary)">
     {{ content }}
   </div>
