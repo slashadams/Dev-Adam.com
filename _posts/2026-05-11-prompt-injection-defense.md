@@ -66,4 +66,4 @@ The defense isn't technical infrastructure. It's **system prompt hygiene**. A we
 
 Every AI agent I ship now includes these defenses by default. It's part of the instruction set, not an afterthought. When you're building or buying AI agents, this is the kind of thing to look for — not just what the agent can do, but how it handles the line between trusted input and untrusted content.
 
-The agents themselves are available as standalone packages — fully configured with these defenses included. Details on my [products page](/#products) if you're interested in seeing the approach in practice.
+The agents themselves are [available on Gumroad](https://gumroad.com/products/maeahs) as standalone packages — fully configured with these defenses included. Also see the [products page](/#products) for the full lineup.

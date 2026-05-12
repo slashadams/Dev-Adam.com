@@ -50,4 +50,4 @@ And honestly? Watching an LLM describe a goblin ambush or narrate a critical hit
 
 ---
 
-*The DM agent is available as a self-contained package. Requires OpenClaw, a Telegram bot token, and an LLM API key. Full install guide included.*
+*The DM agent is [available on Gumroad](https://gumroad.com/products/maeahs) as a self-contained package. Requires OpenClaw, a Telegram bot token, and an LLM API key. Full install guide included.*

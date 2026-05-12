@@ -45,3 +45,7 @@ The character sheet web app taught me something about packaging AI agents as pro
 A DM that can read character sheets is useful. A DM plus a dead-simple way for players to create and share those sheets? That's a product.
 
 When you're building AI products, think about **the full workflow** — not just what the agent does, but how people interact with it before, during, and after the session.
+
+---
+
+*The AI Dungeon Master, including the character sheet web app, is [available on Gumroad](https://gumroad.com/products/maeahs).*
