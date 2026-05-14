@@ -17,6 +17,8 @@ Cameron is a ready-to-deploy OpenClaw agent purpose-built for Florida Community 
 
 ### What ships with v1
 
+**Self-Configuring** — This is the one that matters. There's no admin panel, no config file to edit, no IT ticket to submit. When a new CAM joins the firm, the manager just says "Hey Cameron, add Brian — he's handling Ocean View and Sunset Bay." Cameron creates the profile, sets up the property folders, and Brian can start working immediately. Same for adding a new property, updating a board roster, or filing an insurance cert. The CAMs manage Cameron through conversation.
+
 **Florida Statute Library** — FS 718 (Condominiums), FS 719 (Cooperatives), and FS 720 (Homeowners' Associations), loaded as reference documents. Cameron answers compliance questions with exact statute citations. "How many days notice for a condo annual meeting?" → 60 days per 718.112(2)(d)1. "What's the fine cap for an HOA?" → $100/day per 720.305(2). It's all there.
 
 **Property Vault System** — A structured directory for every managed community. Governing documents, board rosters, insurance certificates, meeting minutes, violation history, vendor records. Each property gets its own folder with a consistent structure and a template to onboard new ones fast.
