@@ -23,29 +23,29 @@ The work that actually requires human judgment — talking to an upset owner, ne
 
 An AI assistant for CAMs, designed around the actual workflow.
 
-Everything runs on one cheap server. The managers interact with it through a messaging app they already use — Telegram, text, whatever. No new software to learn, no dashboard to check. They talk to it like they'd talk to a teammate.
+The idea is everything runs on one cheap server — a VPS, a Proxmox container, whatever the manager already has. They interact with it through a messaging app they already use — Telegram, Matrix, whatever. No new software to learn, no dashboard to check. They talk to it like they'd talk to a teammate.
 
-**What it does:**
+**What it'll do:**
 
-- **Knows every property.** Each community gets its own directory with governing documents, board rosters, maintenance history, insurance certificates. The agent can answer "what's the pet policy for Harbor Cove?" or "who's the board president for Palm Villas?" without the manager digging through a filing cabinet.
+- **Know every property.** Each community gets its own directory with governing documents, board rosters, maintenance history, insurance certificates. The agent should be able to answer "what's the pet policy for Harbor Cove?" without the manager digging through a filing cabinet.
 
-- **Knows the law.** FS 718, 719, and 720 — the full Florida statutes for condos, co-ops, and HOAs — loaded as reference material. The agent cites the exact section in every response. When a manager asks about meeting notice requirements or quorum rules, it answers from the statute, not from memory.
+- **Know the law.** FS 718, 719, and 720 — the full Florida statutes for condos, co-ops, and HOAs — loaded as reference material. The agent cites the exact section in every response. When a manager asks about meeting notice requirements or quorum rules, it answers from the statute, not from memory.
 
-- **Tracks deadlines proactively.** Annual meeting notices, budget distribution deadlines, election timelines, insurance renewals — the agent monitors the calendar and reminds the manager before things slip. Every CAM I know has a story about a missed deadline that turned into a legal mess. That's the kind of thing this prevents.
+- **Track deadlines proactively.** Annual meeting notices, budget distribution deadlines, election timelines, insurance renewals — the agent monitors the calendar and reminds the manager before things slip. Every CAM I know has a story about a missed deadline that turned into a legal mess. That's the kind of thing this is built to prevent.
 
-- **Handles the paperwork.** Violation letters, meeting minutes, board meeting agendas — the agent drafts them from templates, filled with the correct property details and statutory citations. The manager reviews, adjusts, and sends. What used to take 30 minutes takes three.
+- **Handle the paperwork.** Violation letters, meeting minutes, board meeting agendas — the agent drafts them from templates, filled with the correct property details and statutory citations. The manager reviews, adjusts, and sends. What usually takes 30 minutes should take about three.
 
-- **The big one: budget season.** End-of-year budget packages are a massive time sink for CAMs managing multiple properties. Current-year actuals, reserve study requirements, insurance projections, line-item comparisons — the agent does a first pass so the manager has something solid to start from instead of a blank spreadsheet.
+- **The big one: budget season.** End-of-year budget packages are a massive time sink for CAMs managing multiple properties. Current-year actuals, reserve study requirements, insurance projections, line-item comparisons — the idea is the agent does a first pass so the manager has something solid to start from instead of a blank spreadsheet.
 
-## The Architecture
+## The Design Philosophy
 
-I've been thinking about this carefully. Most property management software is expensive, complicated, and locks you into a specific workflow. This goes the other direction:
+Most property management software is expensive, complicated, and locks you into a specific workflow. I want to go the other direction:
 
-- **No monthly per-seat license.** The agent runs on a $6/month VPS and costs about $10/month in AI API usage. That's the total cost, regardless of how many managers use it. For a firm with ten CAMs, that's about $6 per person per month.
+- **No monthly per-seat license.** The agent runs on a single VPS, period. The cost scales with infrastructure, not headcount.
 
 - **No vendor lock-in.** The agent is a self-contained package — a set of configuration files, templates, and reference documents. You own it. If you stop paying for the server, nothing stops working, you just lose the AI.
 
-- **Private by default.** Owner financial data, violation records, board correspondence — none of it leaves your VPS. The AI provider sees your queries but doesn't store them, and the agent's long-term memory lives on your own machine.
+- **Private by default.** Owner financial data, violation records, board correspondence — none of it leaves the manager's server. The AI provider sees queries but doesn't store them, and the agent's long-term memory lives on local infrastructure.
 
 ## Why I'm Writing This Before It's Done
 

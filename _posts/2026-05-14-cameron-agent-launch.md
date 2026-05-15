@@ -1,65 +1,51 @@
 ---
 layout: post
-title: "Cameron Is Here — An AI Assistant for Community Association Managers"
-subtitle: "The CAM-eron agent is built. Florida statutes, document templates, property vaults, and deadline tracking — packaged for OpenClaw."
-tags: [AI agents, property management, CAM, Cameron, product launch]
+title: "Cameron Is Taking Shape — Building an AI Assistant for CAMs"
+subtitle: "Statute library, document templates, property vaults, and deadline tracking — here's what I've built so far."
+tags: [AI agents, property management, CAM, Cameron, side projects, development]
 ---
 
-A few days ago I [wrote about building an AI assistant for CAMs](/blog/building-ai-assistant-for-cams/). The idea was out there, I had the architecture mapped, and I was waiting to see if anyone would tell me I was wrong.
+A few weeks ago I [wrote about the concept for an AI assistant for CAMs](/blog/building-ai-assistant-for-cams/). The problem was clear — too much paperwork, too little time, and the tools haven't caught up. I laid out the architecture and asked if I was on the right track.
 
 Nobody told me I was wrong.
 
-So I built it.
+So I started building.
 
-## Meet Cameron
+## What's Built So Far
 
-Cameron is a ready-to-deploy OpenClaw agent purpose-built for Florida Community Association Managers. Everything we talked about in that first post is now real.
+### Self-Configuring Setup
 
-### What ships with v1
+This was the one that mattered most. I didn't want this to be another dashboard, another login, another tool the manager has to learn. The whole thing works through conversation. When a new CAM joins the firm, the manager just says "Add Brian — he's handling Ocean View and Sunset Bay." The agent creates the profile, sets up the property folders, and Brian can start working immediately. Same for adding a new property, updating a board roster, or filing an insurance cert.
 
-**Self-Configuring** — This is the one that matters. There's no admin panel, no config file to edit, no IT ticket to submit. When a new CAM joins the firm, the manager just says "Hey Cameron, add Brian — he's handling Ocean View and Sunset Bay." Cameron creates the profile, sets up the property folders, and Brian can start working immediately. Same for adding a new property, updating a board roster, or filing an insurance cert. The CAMs manage Cameron through conversation.
+No admin panel. No config files to edit. No IT ticket.
 
-**Florida Statute Library** — FS 718 (Condominiums), FS 719 (Cooperatives), and FS 720 (Homeowners' Associations), loaded as reference documents. Cameron answers compliance questions with exact statute citations. "How many days notice for a condo annual meeting?" → 60 days per 718.112(2)(d)1. "What's the fine cap for an HOA?" → $100/day per 720.305(2). It's all there.
+### Florida Statute Library
 
-**Property Vault System** — A structured directory for every managed community. Governing documents, board rosters, insurance certificates, meeting minutes, violation history, vendor records. Each property gets its own folder with a consistent structure and a template to onboard new ones fast.
+FS 718 (Condominiums), FS 719 (Cooperatives), and FS 720 (Homeowners' Associations) — loaded as reference documents. The agent answers compliance questions with exact statute citations. "How many days notice for a condo annual meeting?" → 60 days per 718.112(2)(d)1. "What's the fine cap for an HOA?" → $100/day per 720.305(2).
 
-**Document Templates** — Pre-built violation letters (first notice, second notice, fine hearing), meeting agendas, meeting minutes, and annual meeting notices. Properly formatted, statute-compliant, ready for the CAM to review and send.
+### Property Vault System
 
-**Deadline Tracking** — Cron-based calendar monitoring for the statutory deadlines that matter: annual meeting notices (60 days out for condos), budget delivery, insurance renewals, CAM license CE tracking. Cameron surfaces reminders proactively so nothing slips.
+A structured directory for every managed community. Governing documents, board rosters, insurance certificates, meeting minutes, vendor records. Each property gets its own folder with a consistent structure and a template so onboarding a new community doesn't mean reinventing the layout.
 
-### What it costs
+### Document Templates
 
-The package is a one-time purchase. You deploy it on your own infrastructure — a $6/month VPS, a Proxmox LXC, or even an old laptop. The AI runs through your existing ChatGPT subscription ($20/month flat, no per-token billing) or an API key if you prefer.
+Pre-built violation letters (first notice, second notice, fine hearing), meeting agendas, meeting minutes, and annual meeting notices. Statue-compliant language, proper citations, ready for the manager to review and send.
 
-Total cost to run: about what you'd spend on lunch for the team once.
+### Deadline Tracking
 
-No per-seat licensing. No monthly minimum. No data leaving your server.
+Cron-based calendar monitoring for the statutory deadlines: annual meeting notices, budget delivery, insurance renewals, CAM license CE tracking. The agent surfaces reminders proactively instead of relying on someone remembering to check.
 
-### Who this is for
+## The Next Pieces
 
-- **Independent CAMs** managing multiple communities who spend more time on paperwork than people
-- **Property management firms** looking to give their managers a tool that actually helps without adding another login they'll forget
-- **Board members** who want their manager spending time on community issues, not drafting notice letters
+The [violation tracking engine](/blog/cameron-violation-engine/) is the latest addition — structured records, status workflows, proactive follow-ups, and repeat-offender detection. That one was a gap I kept coming back to, and I'm glad I took the time to get it right.
 
-### Who this isn't for
+Multi-user routing took a while to figure out. Each CAM sees only their own properties, and it all happens through conversation — the agent knows who's talking based on their chat handle and loads the right context. No dashboard, no user management screen. That was a fun design challenge.
 
-- Anyone looking for a replacement for their management company — Cameron is a tool, not a CAM
-- Anyone who needs legal advice — Cameron cites statutes but isn't your attorney
-- Anyone who doesn't use OpenClaw yet — but that's a five-minute setup
+## What I'm Still Figuring Out
 
-## Why Cameron
+Delivery model is the big one. Self-hosted gives full control over data, but it requires infrastructure comfort that not every firm has. I'd like to offer both options eventually, but I'm not rushing that decision until the agent itself is where I want it.
 
-The name is the pun. CAM-eron. It's sticky. People get it.
-
-But the real reason is that the job is harder than it should be. When I worked in property management, I watched CAMs drown in paperwork that shouldn't have been paperwork in 2026. Every draft letter, every statute lookup, every meeting agenda — it all takes time from the work that actually matters.
-
-Cameron doesn't do the work for you. But it handles the grunt work so you can.
-
-## Availability
-
-The package is available now on Gumroad. Download, deploy, and start onboarding your communities in about 10 minutes.
-
-If you want to try it first, reach out. Happy to walk through it.
+If you're a CAM or work in property management, I'd love to hear what I'm missing. The whole point of building in the open is catching the blind spots before they turn into problems.
 
 ---
 
