@@ -1,27 +1,29 @@
 ---
 layout: post
-title: "Cameron Now Tracks Violations — Building an Enforcement Engine"
-subtitle: "Procedural status workflows, automated follow-ups, repeat-offender detection, and conversational case management — all built into the CAM agent."
-tags: [AI agents, property management, CAM, Cameron, violation enforcement, product update]
+title: "Building a Violation Tracking Engine for My CAM Assistant Project"
+subtitle: "Status workflows, automated follow-ups, repeat-offender detection, and conversational case management — the latest piece I built."
+tags: [AI agents, property management, CAM, side projects, development]
 ---
 
-I've been [building an AI assistant for Florida CAMs](/blog/building-ai-assistant-for-cams/). The core is solid — statute library, document templates, property vaults, self-configuring multi-user setup. But I kept coming back to one gap.
+I've been working on a project — an AI assistant for Florida Community Association Managers. If you've been following along since my [first post on the concept](/blog/building-ai-assistant-for-cams/), you know the gist: an OpenClaw agent that handles compliance tracking, document drafting, deadline reminders, and property management admin work so the CAM can focus on people.
 
-Cameron could *draft* violation letters — beautifully formatted, statute-cited, ready to send. But once that first notice went out, he had no idea what happened next. Did the owner comply? Did the deadline pass? Is it time for the second notice? The fine hearing? The CAM would still be tracking all of that manually, which defeated part of the point.
+The statute library was done. The property vault structure was solid. The templates were in place. But there was a hole I kept coming back to.
 
-That gap is closed now.
+The agent could draft violation letters — properly formatted with statute citations, ready to review. But once that first notice went out, there was nothing connecting it to what happened next. Did the owner comply? Did the deadline pass? Is it time for the second notice? The fine hearing? That's a lot of threads to keep in your head when you're managing 7 communities.
 
-## What the Violation Engine Does
+So I built a system to handle it.
+
+## What I Built
 
 ### Every Violation Gets a Record
 
-When the CAM says *"Log a violation for unit 204 — unapproved window tint"*, Cameron creates a structured record under that property's `violations/` directory. It generates a unique ID (`PV-2026-001`), stamps the date, prompts for the violation type and the specific CCR section, and stores everything in a queryable JSON format.
+I set up a structured JSON schema that lives in each property's directory. When the agent logs a violation, it auto-generates a unique ID (`PV-2026-001`, `HC-2026-003`), stamps the date, and prompts for the violation type and the relevant CCR section. Everything lives in a single `records.json` that the agent can read and update conversationally.
 
-No spreadsheets. No sticky notes. No digging through email threads to figure out where things stand.
+No spreadsheets to maintain. No sticky notes. No digging through email threads to figure out where something stands.
 
-### The Status Workflow Mirrors the Real Process
+### The Status Workflow Mirrors Real Enforcement Procedure
 
-Florida law has a specific enforcement procedure, and the violation engine enforces it:
+Florida law has a specific enforcement pipeline, so I mapped it directly into the state machine:
 
 ```
 discovered → 1st notice sent → compliance period → 2nd notice/final warning
@@ -29,40 +31,38 @@ discovered → 1st notice sent → compliance period → 2nd notice/final warnin
     → cured (at any point) or escalated to legal
 ```
 
-The engine knows which status transitions are legal. If a CAM asks *"Schedule a fine hearing for HC-2026-003"* but the violation is still in first-notice status, Cameron will say *"That unit hasn't received a final warning yet. Let me send the second notice first."*
-
-This isn't just process for the sake of process — it's liability protection. Missing a procedural step in violation enforcement opens the association up to legal challenges. Cameron keeps the CAM in compliance without them having to think about it.
+The engine enforces valid transitions. If someone were to ask "schedule a fine hearing" for a violation that's still in first-notice status, it would catch that and suggest sending the final warning first. Missing a procedural step in violation enforcement creates real legal exposure for the association — this is one of those places where getting the process right matters more than speed.
 
 ### Proactive Follow-Ups
 
-Every morning during Cameron's check-in, he scans each property's records:
+I wired this into the agent's daily check-in so it scans each property's records every morning:
 
-- **Compliance deadlines passed for first notice?** → Flags the CAM to send the second notice
-- **Response deadline passed for final warning?** → Flags for hearing scheduling
-- **Hearing scheduled for today or tomorrow?** → Reminds the CAM to prepare
+- Compliance deadlines passed for first notice? → Flag for second notice
+- Response deadline passed for final warning? → Flag for hearing scheduling
+- Hearing scheduled for today or tomorrow? → Surface it before the CAM has to ask
 
-The CAM doesn't have to remember to check. Cameron surfaces what needs attention.
+The idea is the agent surfaces what needs attention instead of the CAM having to remember to check.
 
 ### Repeat Offender Detection
 
-When the same owner pops up with the same violation type three times, Cameron flags it. The engine maintains an `owners-index.json` that tracks violation history per unit — pattern detection that a busy CAM might miss across a portfolio of 5, 10, or 20 properties.
+I added an `owners-index.json` that tracks violation history per unit. When the same owner pops up with the same violation type multiple times, it flags the pattern — something that's easy to miss across a portfolio.
 
-*"FYI — unit 204 at Palm Villas has 3 architectural violations this year, same category. This is now a recurring pattern worth discussing with the board."*
+I'm excited about this one. A CAM with 5+ properties doesn't have time to cross-reference which units keep showing up for the same issue. Let the agent do the pattern matching.
 
-### Queryable, Not Just Trackable
+### Conversational Queries
 
-The CAM can ask questions in plain language and get answers:
+The part I'm happiest with: the agent can answer questions about violations in plain language by reading the records directly:
 
-- *"What open violations does Palm Villas have?"* → Summary by status, oldest first
-- *"Show me violations past their compliance deadline"* → Date comparison across all records
+- *"What open violations does Palm Villas have?"* → Summary by status
+- *"Show me violations past their compliance deadline"* → Date comparison across records
 - *"Which units have had 3+ violations this year?"* → Owners index query
 - *"List all violations for unit 204"* → Full timeline for a specific unit
 
-This is the part I'm most excited about. A CAM managing 7 properties with a dozen open violations each doesn't have time to audit spreadsheets. They should be able to ask a question and get the answer.
+No dashboards to check. No reports to run. Just ask.
 
-## Reference Library for Violation Types
+## The Violation Types Reference
 
-Alongside the engine, I added a comprehensive violation type reference — 8 categories with 50+ sub-types, each mapped to the typical governing document section and the relevant Florida statute:
+Alongside the engine, I put together a reference file covering 8 violation categories with 50+ sub-types, each mapped to common governing document sections and the relevant Florida statute:
 
 - Architectural modifications (FS 718.113, FS 720.3075)
 - Landscaping and grounds (FS 720.304)
@@ -73,24 +73,16 @@ Alongside the engine, I added a comprehensive violation type reference — 8 cat
 - Rental and occupancy violations
 - Health and safety
 
-Plus the fine schedule caps from statute, the arbitration requirements for HOAs, and the procedural checklist for every enforcement stage. It's the reference I wish every CAM desk had pinned to the wall.
+Plus the fine schedule caps from statute, the arbitration requirements for HOAs, and the procedural checklist for each enforcement stage. It's the kind of reference I'd want pinned to the wall.
 
-## What This Changes
+## What's Next
 
-Before: Cameron could write the letter, but you had to remember to come back and tell him what happened.
+The core pieces are coming together — statute reference, document drafting, deadline tracking, property vaults, multi-user support, and now violation management. The multi-user routing (each CAM sees only their own properties) was a fun challenge to get right since it all happens conversationally without any dashboard.
 
-After: Cameron runs the enforcement workflow. The CAM logs the violation, sends the notices when prompted, marks it cured when resolved, and never has to wonder "wait, did I follow up on that one from last month?"
+I'm still thinking through the delivery model. Self-hosted gives CAMs full control over their data, but it requires infrastructure comfort that not everyone has. I'm exploring what makes sense.
 
-For a self-managed board or an independent CAM with five communities, this is the difference between violation enforcement being a constant nagging task versus something that just stays on track.
-
-## Also: Delivery Model Thoughts
-
-I've been thinking a lot about how to deliver this. Self-hosted is obviously the privacy-first option — bring your own VPS, own your data, no monthly fees beyond your infrastructure.
-
-But I keep wondering if that's a barrier for the people who'd actually want this. Setting up a VPS and deploying an OpenClaw agent isn't hard for me, but for a CAM running five communities and barely keeping up with email? That's a blocker, not a feature.
-
-I'm leaning toward offering both: a self-hosted package for the technically inclined, and a managed tier where I host it and you subscribe monthly. But I'm curious — if you've looked at a tool like this and passed, was the hosting friction part of it? Let me know.
+Mostly I'm focused on getting the agent right. If you're a CAM or work in property management, I'd love to hear what I'm missing — the whole point of building in the open is finding out what I haven't thought of yet.
 
 ---
 
-*Still building this one conversation at a time. If you're a CAM or work with one, I'd love to hear what I'm getting wrong.*
+*Building this one piece at a time. Reach out if something here resonates or if I'm way off.*
