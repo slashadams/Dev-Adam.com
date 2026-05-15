@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florida CAM Compliance Cheat Sheet</title>
+<style>
+  @page { margin: 0.5in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-size: 10pt;
+    line-height: 1.4;
+    color: #1a1a1a;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 20pt;
+  }
+  h1 {
+    font-size: 18pt;
+    margin-bottom: 2pt;
+    color: #0a4b7a;
+  }
+  .subtitle {
+    font-size: 10pt;
+    color: #555;
+    margin-bottom: 12pt;
+    border-bottom: 2px solid #0a4b7a;
+    padding-bottom: 8pt;
+  }
+  h2 {
+    font-size: 12pt;
+    color: #0a4b7a;
+    margin-top: 10pt;
+    margin-bottom: 4pt;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2pt;
+  }
+  h3 {
+    font-size: 10.5pt;
+    color: #2a5a7a;
+    margin-top: 6pt;
+    margin-bottom: 2pt;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12pt;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin: 4pt 0;
+  }
+  th {
+    background: #0a4b7a;
+    color: white;
+    padding: 3pt 5pt;
+    text-align: left;
+    font-weight: 600;
+    font-size: 8.5pt;
+  }
+  td {
+    padding: 2.5pt 5pt;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f7f9fc; }
+  .statute-badge {
+    display: inline-block;
+    background: #e8f0f8;
+    color: #0a4b7a;
+    padding: 1pt 5pt;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 8pt;
+    margin-right: 3pt;
+  }
+  .checklist {
+    list-style: none;
+    font-size: 9pt;
+  }
+  .checklist li {
+    padding: 2pt 0 2pt 16pt;
+    position: relative;
+  }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: #0a4b7a;
+  }
+  .fine-table td:first-child { font-weight: 600; width: 35%; }
+  .footnote {
+    margin-top: 10pt;
+    font-size: 7.5pt;
+    color: #888;
+    border-top: 1px solid #ddd;
+    padding-top: 6pt;
+  }
+  @media print {
+    body { padding: 0; max-width: 100%; }
+    .grid-2, .grid-3 { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Florida CAM Compliance Cheat Sheet</h1>
+<div class="subtitle">Quick reference for FS 718 (Condos), FS 719 (Cooperatives), and FS 720 (HOAs) — the deadlines, fines, and procedures you reach for most.</div>
+
+<div class="grid-2">
+  <div>
+    <h2>⏱ Meeting & Notice Deadlines</h2>
+    <table>
+      <tr><th>Requirement</th><th>Condo (718)</th><th>HOA (720)</th></tr>
+      <tr><td>Annual meeting notice</td><td><strong>60 days</strong> (718.112(2)(d)1)</td><td><strong>14 days</strong> (720.306(1))</td></tr>
+      <tr><td>Budget delivery before meeting</td><td><strong>14 days</strong> (718.112(2)(f))</td><td>Before fiscal year (720.303(6))</td></tr>
+      <tr><td>Board meeting notice</td><td><strong>48 hours</strong> posted</td><td><strong>48 hours</strong> posted</td></tr>
+      <tr><td>Record inspection response</td><td><strong>10 business days</strong> (718.111(12))</td><td><strong>10 business days</strong> (720.303(4))</td></tr>
+      <tr><td>Notice of lien intent</td><td><strong>30 days</strong> (718.116)</td><td>Per governing docs</td></tr>
+      <tr><td>Vote/amenity suspension</td><td><strong>90 days</strong> delinquent (718.303(4))</td><td><strong>90 days</strong> delinquent (720.305)</td></tr>
+    </table>
+  </div>
+  <div>
+    <h2>💰 Fine Schedule</h2>
+    <table class="fine-table">
+      <tr><th></th><th>Limit</th><th>Source</th></tr>
+      <tr><td>Per day</td><td><strong>$100 max</strong></td><td>718.303(3) / 720.305(2)</td></tr>
+      <tr><td>Cumulative cap</td><td><strong>$1,000</strong> (unless docs allow more)</td><td>718.303(3)</td></tr>
+      <tr><td>Fine committee</td><td><strong>No board members</strong></td><td>718.303(3)</td></tr>
+      <tr><td>Right to hearing</td><td>Written request, present evidence</td><td>718.303 / 720.305</td></tr>
+    </table>
+    <h3>Violation Enforcement Pipeline</h3>
+    <div style="font-size: 8.5pt; background: #f7f9fc; padding: 6pt 8pt; border-radius: 4pt; margin-top: 2pt;">
+      <strong>1st Notice</strong> → compliance period → <strong>2nd Notice (Final)</strong> → response period → <strong>Fine Hearing</strong> → committee decision → <strong>Fine Imposed</strong>
+      <div style="margin-top: 3pt; color: #666;">Cured at any stage. Escalate to attorney if unpaid/unresolved.</div>
+    </div>
+  </div>
+</div>
+
+<h2>📋 Statute Quick-Compare</h2>
+<div class="grid-3">
+  <div style="background: #e8f0f8; padding: 6pt 8pt; border-radius: 4pt;">
+    <strong>🏢 Condo (FS 718)</strong>
+    <ul style="font-size: 8.5pt; margin-top: 3pt; padding-left: 14pt;">
+      <li>Unit owners own units + share common elements</li>
+      <li>Strong lien authority (super lien for 6 mo assessments)</li>
+      <li>Reserve studies required for major components</li>
+      <li>Election by unit, not shareholder</li>
+    </ul>
+  </div>
+  <div style="background: #e8f0f8; padding: 6pt 8pt; border-radius: 4pt;">
+    <strong>🤝 Co-op (FS 719)</strong>
+    <ul style="font-size: 8.5pt; margin-top: 3pt; padding-left: 14pt;">
+      <li>Owners own shares in corporation</li>
+      <li>Corporation owns property outright</li>
+      <li>Greater eviction authority than condos</li>
+      <li>Voting by share, not unit</li>
+    </ul>
+  </div>
+  <div style="background: #e8f0f8; padding: 6pt 8pt; border-radius: 4pt;">
+    <strong>🏡 HOA (FS 720)</strong>
+    <ul style="font-size: 8.5pt; margin-top: 3pt; padding-left: 14pt;">
+      <li>Owners own lots + mandatory membership</li>
+      <li>More limited lien vs. condos</li>
+      <li>Arbitration required for covenant disputes (720.311)</li>
+      <li>Homestead protection for owner-occupied</li>
+    </ul>
+  </div>
+</div>
+
+<h2>📅 Financial Reporting Thresholds (718.111(13))</h2>
+<table>
+  <tr><th>Annual Revenue</th><th>Required Report</th></tr>
+  <tr><td>$150K – $300K</td><td><strong>Compiled</strong> financial statement</td></tr>
+  <tr><td>$300K – $500K</td><td><strong>Reviewed</strong> financial statement</td></tr>
+  <tr><td>> $500K</td><td><strong>Audited</strong> financial statement</td></tr>
+</table>
+
+<h2>✅ Daily/Weekly Compliance Checklist</h2>
+<div class="grid-2">
+  <div>
+    <ul class="checklist">
+      <li>Annual meeting notices due (60-day / 14-day windows)</li>
+      <li>Budget delivery deadlines approaching</li>
+      <li>Insurance renewals within 60 days — COI on file?</li>
+      <li>Open violations past compliance deadline</li>
+      <li>Fine hearings scheduled for this week</li>
+    </ul>
+  </div>
+  <div>
+    <ul class="checklist">
+      <li>Records inspection requests pending</li>
+      <li>Board meeting minutes from last meeting filed</li>
+      <li>CAM license CE credits on track (16 hrs biennial)</li>
+      <li>Reserve study update due</li>
+      <li>Vendor insurance certs expiring</li>
+    </ul>
+  </div>
+</div>
+
+<h2>📞 Quick Contacts & Resources</h2>
+<table>
+  <tr><th>Resource</th><th>Contact</th></tr>
+  <tr><td>DBPR (Division of Florida Condominiums)</td><td>850.487.1395 | myfloridalicense.com</td></tr>
+  <tr><td>CAM License / CE Questions</td><td>DBPR Customer Contact Center</td></tr>
+  <tr><td>Florida Statutes (Online)</td><td>leg.state.fl.us/statutes</td></tr>
+  <tr><td>Association Attorney</td><td>____________________</td></tr>
+  <tr><td>Management Company</td><td>____________________</td></tr>
+</table>
+
+<div class="footnote">
+  <strong>Disclaimer:</strong> This is a quick reference guide, not legal advice. Statutes change — verify current language before acting. Always consult the association attorney for legal opinions on specific situations.<br>
+  <em>Created by dev-adam.com — building tools for the people who keep communities running.</em>
+</div>
+
+</body>
+</html>

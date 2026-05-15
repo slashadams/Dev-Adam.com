@@ -1,0 +1,43 @@
+I put together a compliance cheat sheet for Florida CAMs — figured I'd share it here in case it helps anyone.
+
+## Meeting & Notice Deadlines
+
+| Requirement | Condo (718) | HOA (720) |
+|---|---|---|
+| Annual meeting notice | 60 days | 14 days |
+| Budget delivery before meeting | 14 days | Before fiscal year |
+| Board meeting notice | 48 hours posted | 48 hours posted |
+| Record inspection response | 10 business days | 10 business days |
+
+## Fine Schedule
+- $100/day max per violation, $1,000 cumulative unless docs say otherwise
+- Fine committee must have NO board members
+- Owner has right to a hearing before any fine is imposed
+
+## Enforcement Pipeline
+1st Notice → compliance period → 2nd Notice (Final Warning) → response period → Fine Hearing → committee decides → Fine Imposed
+
+Cured at any stage. Escalate to attorney if unpaid.
+
+## Statute Quick-Compare
+- **Condo (FS 718):** Unit owners own units + common elements. Strong lien authority. Reserve studies required for major components.
+- **Co-op (FS 719):** Owners own shares in corporation. Corporation owns the building. Greater eviction authority.
+- **HOA (FS 720):** Owners own lots. More limited lien authority. Arbitration required for covenant disputes.
+
+## Financial Reporting Thresholds
+- $150K–$300K annual revenue → Compiled statement
+- $300K–$500K → Reviewed statement
+- >$500K → Audited statement
+
+## Daily Checklist
+- Annual meeting notices due?
+- Insurance renewals within 60 days?
+- Open violations past compliance deadline?
+- Records inspection requests pending?
+- CAM license CE credits on track?
+
+---
+
+Full printable version with contacts and references: https://dev-adam.com/resources/florida-cam-compliance-cheatsheet
+
+*Not legal advice — statutes change, always verify. And I'm just a dev building tools for CAMs, not a lawyer.*
