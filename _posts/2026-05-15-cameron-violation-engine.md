@@ -1,15 +1,13 @@
 ---
 layout: post
-title: "Cameron Now Tracks Violations — The Enforcement Engine Is Live"
+title: "Cameron Now Tracks Violations — Building an Enforcement Engine"
 subtitle: "Procedural status workflows, automated follow-ups, repeat-offender detection, and conversational case management — all built into the CAM agent."
 tags: [AI agents, property management, CAM, Cameron, violation enforcement, product update]
 ---
 
-Two weeks ago I [launched Cameron](/blog/cameron-agent-launch/) — an AI assistant for Florida Community Association Managers. The feedback has been solid. People get why a CAM needs an agent that knows FS 718 the way a pilot knows a checklist.
+I've been [building an AI assistant for Florida CAMs](/blog/building-ai-assistant-for-cams/). The core is solid — statute library, document templates, property vaults, self-configuring multi-user setup. But I kept coming back to one gap.
 
-But the first version had a gap. A big one.
-
-Cameron could *draft* violation letters — beautifully formatted, statute-cited, ready to send. But once that first notice went out, he had no idea what happened next. Did the owner comply? Did the deadline pass? Is it time for the second notice? The fine hearing? The CAM had to keep tracking all of that manually, which defeated part of the point.
+Cameron could *draft* violation letters — beautifully formatted, statute-cited, ready to send. But once that first notice went out, he had no idea what happened next. Did the owner comply? Did the deadline pass? Is it time for the second notice? The fine hearing? The CAM would still be tracking all of that manually, which defeated part of the point.
 
 That gap is closed now.
 
@@ -87,14 +85,12 @@ For a self-managed board or an independent CAM with five communities, this is th
 
 ## Also: Delivery Model Thoughts
 
-I've been thinking a lot about how to deliver this. The self-hosted package on Gumroad is still the main option — you bring your own VPS, you own your data, no monthly fees beyond your infrastructure.
+I've been thinking a lot about how to deliver this. Self-hosted is obviously the privacy-first option — bring your own VPS, own your data, no monthly fees beyond your infrastructure.
 
-But a lot of people have asked about a hosted version. "iat setup sounds great but I don't want to manage a server."
+But I keep wondering if that's a barrier for the people who'd actually want this. Setting up a VPS and deploying an OpenClaw agent isn't hard for me, but for a CAM running five communities and barely keeping up with email? That's a blocker, not a feature.
 
-I'm considering it. If I did offer a managed tier — I host it, you subscribe monthly — would that change whether you'd try it? I'd love to hear from people who looked at the self-hosted option and passed.
-
-Same as before — reach out however you find me. I'm still listening.
+I'm leaning toward offering both: a self-hosted package for the technically inclined, and a managed tier where I host it and you subscribe monthly. But I'm curious — if you've looked at a tool like this and passed, was the hosting friction part of it? Let me know.
 
 ---
 
-*Cameron is available now. The violation engine ships as a free update to all existing purchases.*
+*Still building this one conversation at a time. If you're a CAM or work with one, I'd love to hear what I'm getting wrong.*
