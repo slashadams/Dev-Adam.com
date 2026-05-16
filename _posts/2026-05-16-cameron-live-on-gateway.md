@@ -21,12 +21,12 @@ That changed this afternoon. He's now registered as an agent on the gateway with
 
 ## How I Access Him
 
-Right now I'm testing through the OpenClaw web UI and a Telegram bot. The web interface at `gateway-address:port` lets me switch between my personal agent (Felix) and Cameron in the same dashboard. Dana from Next Generation Management — who's been following the project — will get to try him hands-on soon.
+Right now I'm testing through the OpenClaw web UI and a Telegram bot. The web interface at `gateway-address:port` lets me switch between my personal agent (Felix) and Cameron in the same dashboard.
 
 The Telegram setup was dead simple. Created a bot through @BotFather, got a token, configured it, and Cameron was accepting messages within minutes. No phone number, no QR codes, no infrastructure changes.
 
 ## What's Next
 
-The plan is to get Dana on the bot for real feedback — let a working CAM push Cameron through actual use cases. I want to see where he shines and where he falls apart before I think about packaging this up for sale.
+The plan is to get a working CAM to push Cameron through actual use cases. I want to see where he shines and where he falls apart before I think about packaging this up for sale.
 
 If you're curious, you can follow along with the [agent source on GitHub](https://github.com/slashadams/ai-enterprises) or read about how the [violation tracking engine](/blog/cameron-violation-engine/) works under the hood.
