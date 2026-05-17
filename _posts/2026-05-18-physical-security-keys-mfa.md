@@ -1,7 +1,7 @@
 ---
 title: "Why Physical Security Keys Are the Future of MFA"   
 date: 2026-05-18 10:00:00 -0400
-tags: [security, mfa, hardware, yubikey]
+tags: [security, mfa, hardware, yubikey] 
 ---  
 
 ## The Power of Physical Security Keys for Multi‑Factor Authentication
