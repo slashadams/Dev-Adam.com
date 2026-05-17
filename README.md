@@ -14,8 +14,8 @@ A clean, dark-mode personal website for Adam (slashadams).
 ## Project Structure
 
 ```
-/dev-adam.com
-├── index.html          # Main portfolio page
+/dev-adam.com. 
+├── index.html          # Main portfolio page. 
 ├── css/
 │   └── style.css       # Custom styles & dark theme
 ├── js/
