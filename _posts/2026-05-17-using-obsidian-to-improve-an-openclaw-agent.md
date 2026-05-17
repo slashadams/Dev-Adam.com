@@ -15,7 +15,7 @@ Obsidian is a plain‑markdown knowledge base that lets you link notes, tag cont
 2. **Versioned knowledge** – Because the vault lives inside your OpenClaw workspace, every change is committed to Git. You get a full history of how the agent’s understanding evolved over time.
 3. **Cross‑agent visibility** – Both Felix and Cameron write to the same vault (`~/obsidian‑vault`). This makes it easy to share context between agents without duplicating data.
 4. **Human editing** – Need to correct a fact or add a nuance? Open the relevant note in Obsidian, edit it, and the next agent run will pick up the change automatically.
-5. **Time‑zone consistency** – All timestamps are stored using your preferred zone (US/Eastern). OpenClaw now respects the `timezone` setting you configured, so every entry appears with `‑04:00` offset instead of UTC.
+5. **Time‑zone consistency** – 
 
 ## Quick Setup (no server needed)
 
@@ -48,7 +48,7 @@ Open the same file in Obsidian, add a comment, or link it to a broader project n
 
 ## TL;DR
 - **Enable** the Obsidian memory‑wiki (already done).
-- **All timestamps** now use US/Eastern (`‑04:00`).
+
 - **Both agents** write to the same vault, giving you a searchable, version‑controlled knowledge base.
 - **No extra server** – just a folder on your machine.
 
