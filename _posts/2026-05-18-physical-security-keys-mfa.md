@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Why Physical Security Keys Are the Future of MFA"   
 date: 2026-05-17
 tags: [security, mfa, hardware, yubikey] 
@@ -79,3 +80,5 @@ Physical security keys give you a **phishing‑resistant, password‑less, user�
 #### My own setup (optional example)
 
 I keep a YubiKey 5 C NFC on my laptop and a YubiKey 5 USB NFC on my desktop. If I misplace the USB version, the C‑model on my phone (via NFC) is ready to go. This dual‑key approach lets me cover laptops, desktops, and mobile devices without adapters and demonstrates the backup‑key best practice we recommend.
+
+*Published on* {{ site.time | date: "%B %d, %Y" }}
