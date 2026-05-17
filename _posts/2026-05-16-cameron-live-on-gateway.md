@@ -29,4 +29,4 @@ The Telegram setup was dead simple. Created a bot through @BotFather, got a toke
 
 The plan is to get a working CAM to push Cameron through actual use cases. I want to see where he shines and where he falls apart before I think about packaging this up for sale.
 
-If you're curious, you can follow along with the [agent source on GitHub](https://github.com/slashadams/ai-enterprises) or read about how the [violation tracking engine](/blog/cameron-violation-engine/) works under the hood.
+If you're curious, you can request access to the private [agent source on GitHub](https://github.com/slashadams/ai-enterprises) (the repository is private), or read about how the [violation tracking engine](/blog/cameron-violation-engine/) works under the hood.
