@@ -2,7 +2,7 @@
 layout: post
 title: "Why LLM Wiki Beats RAG for Your AI Agent's Long-Term Memory"
 subtitle: "Plain markdown files, cross-linked knowledge, and zero vector database required"
-date: 2026-05-28 08:00:00 -04:00
+date: 2026-05-27 22:30:00 -04:00
 tags: [llm-wiki, knowledge-base, agents, rag, memory, markdown]
 ---
 
