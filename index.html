@@ -1,100 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Adam — Building AI agents for specific jobs. Creator of the CAM assistant for Florida property managers, AI Dungeon Master for D&D 5e, and more.">
-  <meta name="author" content="Adam">
-  <title>Adam — AI Agents & Internet Products</title>
-  
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Adam — AI Agents & Internet Products">
-  <meta property="og:description" content="Building AI agents for real jobs — property management, D&D, and beyond. Creator of the CAM assistant for Florida property managers.">
-  <meta property="og:url" content="https://www.dev-adam.com">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="dev-adam.com">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adam — AI Agents & Internet Products">
-  <meta name="twitter:description" content="Building AI agents for real jobs — property management, D&D, and beyond. Creator of the CAM assistant for Florida property managers.">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Adam",
-    "url": "https://www.dev-adam.com",
-    "sameAs": ["https://github.com/slashadams"],
-    "description": "Building AI agents for specific jobs — property management, D&D, and beyond."
-  }
-  </script>
-  
-  <!-- Tailwind CSS via CDN for rapid professional styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  
-  <style>
-    /* Tailwind script config for dark mode consistency */
-    script {
-      /* Tailwind will be configured in the script below */
-    }
-  </style>
-</head>
-<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
-
-  <!-- ============================================
-       HEADER / NAVIGATION
-       ============================================ -->
-  <header>
-    <nav class="container">
-      <div class="nav">
-        <!-- Logo -->
-        <a href="#" class="logo">
-          <span>adam</span>
-          <span class="text-xs font-mono tracking-[3px] text-zinc-500">dev</span>
-        </a>
-
-        <!-- Desktop Navigation -->
-        <ul id="nav-links" class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <!-- Actions -->
-        <div class="nav-actions">
-          <a href="#projects" 
-             class="btn btn-primary text-sm px-6 py-2.5 hidden md:inline-flex">
-            View Work
-          </a>
-          
-          <!-- Mobile Menu Button -->
-          <button id="mobile-menu-btn" 
-                  class="mobile-menu-btn md:hidden"
-                  aria-label="Toggle navigation">
-            <span class="text-2xl">☰</span>
-          </button>
-        </div>
-      </div>
-    </nav>
-  </header>
+---
+layout: default
+title: Adam — AI Agents & Internet Products
+description: Adam — Building AI agents for specific jobs. Creator of the CAM assistant for Florida property managers, AI Dungeon Master for D&D 5e, and more.
+---
 
   <!-- ============================================
        HERO / INTRO
        ============================================ -->
-  <section class="hero">
-    <div class="container">
+  <section class="hero relative overflow-hidden">
+    <!-- Ambient light glow effects -->
+    <div class="absolute top-[25%] left-[5%] w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute bottom-[20%] right-[5%] w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="container relative z-10">
       <div class="hero-content">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/60 backdrop-blur-md border border-zinc-800/80 mb-6">
           <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
           <span class="text-sm text-zinc-400 font-medium tracking-wide">Open to new opportunities</span>
         </div>
@@ -155,10 +75,61 @@
         
         <!-- Visual / Avatar -->
         <div class="about-image">
-          <div class="text-center">
-            <!-- Stylized avatar using emoji + gradient -->
-            <div class="avatar-placeholder">🧠</div>
-            <div class="mt-2 text-xs tracking-[2px] text-zinc-500 font-mono">SPECTRAL PARSER</div>
+          <div class="relative w-full h-full flex flex-col items-center justify-center p-8">
+            <svg class="w-48 h-48 drop-shadow-[0_0_20px_rgba(99,102,241,0.2)]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="neural-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <circle cx="100" cy="100" r="85" fill="url(#neural-glow)" />
+              
+              <!-- Connection Lines -->
+              <g stroke="#818cf8" stroke-width="1.2" opacity="0.35">
+                <line x1="100" y1="35" x2="55" y2="75" />
+                <line x1="100" y1="35" x2="145" y2="75" />
+                <line x1="55" y1="75" x2="55" y2="125" />
+                <line x1="145" y1="75" x2="145" y2="125" />
+                <line x1="55" y1="125" x2="100" y2="165" />
+                <line x1="145" y1="125" x2="100" y2="165" />
+                
+                <!-- Inner Cross Connections -->
+                <line x1="100" y1="35" x2="100" y2="100" />
+                <line x1="55" y1="75" x2="100" y2="100" />
+                <line x1="145" y1="75" x2="100" y2="100" />
+                <line x1="55" y1="125" x2="100" y2="100" />
+                <line x1="145" y1="125" x2="100" y2="100" />
+                <line x1="100" y1="165" x2="100" y2="100" />
+              </g>
+
+              <!-- Pulse core rings -->
+              <circle cx="100" cy="100" r="10" fill="#6366f1" opacity="0.7">
+                <animate attributeName="r" values="8;16;8" dur="4s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.7;0.25;0.7" dur="4s" repeatCount="indefinite" />
+              </circle>
+
+              <!-- Node Points -->
+              <g fill="#fafafa">
+                <circle cx="100" cy="100" r="5" fill="#818cf8">
+                  <animate attributeName="r" values="4.5;6.5;4.5" dur="2s" repeatCount="indefinite" />
+                </circle>
+                
+                <!-- Outer Nodes -->
+                <circle cx="100" cy="35" r="4.5" fill="#a1a1aa" />
+                <circle cx="55" cy="75" r="4.5" fill="#a1a1aa" />
+                <circle cx="145" cy="75" r="4.5" fill="#a1a1aa" />
+                <circle cx="55" cy="125" r="4.5" fill="#a1a1aa" />
+                <circle cx="145" cy="125" r="4.5" fill="#a1a1aa" />
+                <circle cx="100" cy="165" r="4.5" fill="#a1a1aa" />
+              </g>
+              
+              <!-- Floating Data Packet -->
+              <circle cx="100" cy="35" r="3.5" fill="#818cf8">
+                <animateMotion path="M 0,0 L -45,40 L 0,65 L 45,40 Z" dur="6s" repeatCount="indefinite" />
+              </circle>
+            </svg>
+            <div class="mt-4 text-xs tracking-[3px] text-indigo-400 font-mono font-semibold animate-pulse">SPECTRAL PARSER v2.0</div>
           </div>
         </div>
       </div>
@@ -181,7 +152,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>2025</span>
+              <span class="status-badge">2025</span>
             </div>
             <h3>Proxmox Homelab Cluster</h3>
           </div>
@@ -200,7 +171,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>2025</span>
+              <span class="status-badge">2025</span>
             </div>
             <h3>Redundant Pi-hole DNS</h3>
           </div>
@@ -219,7 +190,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>2025</span>
+              <span class="status-badge">2025</span>
             </div>
             <h3>Tandoor Recipe Scanner</h3>
           </div>
@@ -238,8 +209,8 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>2025</span>
-              <span>Featured</span>
+              <span class="status-badge">2025</span>
+              <span class="status-badge status-featured">Featured</span>
             </div>
             <h3>OpenClaw AI Agents</h3>
           </div>
@@ -258,7 +229,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>2025</span>
+              <span class="status-badge">2025</span>
             </div>
             <h3>Self-Hosted Matrix Server</h3>
           </div>
@@ -277,7 +248,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>2025</span>
+              <span class="status-badge">2025</span>
             </div>
             <h3>Twingate Zero-Trust Access</h3>
           </div>
@@ -315,13 +286,13 @@
       </div>
       
       <div class="projects-grid">
-
+ 
         <!-- 1. AI Dungeon Master - LIVE -->
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>Available Now</span>
-              <span>$39</span>
+              <span class="status-badge status-live">Available Now</span>
+              <span class="status-badge status-price">$39</span>
             </div>
             <h3>AI Dungeon Master — D&D 5e Agent</h3>
           </div>
@@ -343,8 +314,8 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>Available Now</span>
-              <span>$15</span>
+              <span class="status-badge status-live">Available Now</span>
+              <span class="status-badge status-price">$15</span>
             </div>
             <h3>Local Service Pro — 50 ChatGPT Prompts</h3>
           </div>
@@ -366,7 +337,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>In Development</span>
+              <span class="status-badge status-dev">In Development</span>
             </div>
             <h3>Local Service Pro Agent</h3>
           </div>
@@ -385,7 +356,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>In Development</span>
+              <span class="status-badge status-dev">In Development</span>
             </div>
             <h3>Fitness Coach Agent</h3>
           </div>
@@ -404,7 +375,7 @@
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-meta">
-              <span>In Development</span>
+              <span class="status-badge status-dev">In Development</span>
             </div>
             <h3>Low Voltage Tech Agent</h3>
           </div>
@@ -445,46 +416,3 @@
       </div>
     </div>
   </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="text-sm text-zinc-500">
-          © 2025 Adam. Crafted with precision and a touch of dark magic.
-        </div>
-        
-        <div class="footer-links text-sm">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#products">Products</a>
-          <a href="https://github.com/slashadams" target="_blank">GitHub</a>
-          <a href="/blog/">Blog</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Custom JavaScript -->
-  <script src="js/script.js"></script>
-  
-  <!-- Tailwind Configuration -->
-  <script>
-    // Tailwind custom config (extends dark palette)
-    function initializeTailwind() {
-      const style = document.createElement('style');
-      style.textContent = `
-        .btn-primary { background-color: #6366f1; }
-        .btn-primary:hover { background-color: #4f46e5; }
-      `;
-      document.head.appendChild(style);
-    }
-    
-    // Run on load
-    window.onload = function() {
-      initializeTailwind();
-    };
-  </script>
-
-</body>
-</html>

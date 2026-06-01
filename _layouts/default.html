@@ -6,7 +6,7 @@
   <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
   <meta name="author" content="Adam">
   <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' | escape }}{% else %}AI agents, D&D AI Dungeon Master, developer tools, OpenClaw, AI products{% endif %}">
-  <title>{% if page.title %}{{ page.title | escape }} · Adam{% else %}Adam · dev-adam.com{% endif %}</title>
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}Adam · dev-adam.com{% endif %}</title>
   
   <!-- Open Graph -->
   <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}Adam · dev-adam.com{% endif %}">
@@ -24,50 +24,66 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   
+  <!-- Structured Data (homepage only) -->
+  {% if page.url == '/' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adam",
+    "url": "https://www.dev-adam.com",
+    "sameAs": ["https://github.com/slashadams"],
+    "description": "Building AI agents for specific jobs — property management, D&D, and beyond."
+  }
+  </script>
+  {% endif %}
+
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <style>
-    :root {
-      --bg-primary: #0a0a0a; --bg-secondary: #121212; --bg-card: #18181b; --bg-elevated: #27272a;
-      --text-primary: #fafafa; --text-secondary: #a1a1aa; --text-muted: #71717a;
-      --accent: #6366f1; --accent-hover: #4f46e5; --accent-light: #818cf8;
-      --border: #27272a; --border-light: #3f3f46;
-    }
-    * { box-sizing: border-box; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; margin: 0; padding: 0; }
-    a { color: var(--accent-light); text-decoration: none; }
-    a:hover { color: var(--accent); }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-    header { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
-    .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
-    .logo span { color: var(--accent); }
-    .logo:hover { color: var(--text-primary); }
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
-    .nav-links a:hover { color: var(--text-primary); }
-    .nav-links a.active { color: var(--accent-light); }
-    footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 3rem 0 2rem; margin-top: 4rem; }
-    .footer-content { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
-    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
-    .footer-links a { color: var(--text-secondary); text-decoration: none; }
-    .footer-links a:hover { color: var(--accent); }
-    @media (max-width: 768px) {
-      .nav-links { display: flex; gap: 1rem; font-size: 0.875rem; }
-    }
-  </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+
+  <!-- ============================================
+       HEADER / NAVIGATION
+       ============================================ -->
   <header>
     <nav class="container">
       <div class="nav">
-        <a href="/" class="logo"><span>adam</span><span class="text-xs font-mono tracking-[3px] text-zinc-500">dev</span></a>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-brand">adam</span>
+          <span class="text-xs font-mono tracking-[3px] text-zinc-500">dev</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul id="nav-links" class="nav-links">
+          <li><a href="/#about">About</a></li>
           <li><a href="/#projects">Projects</a></li>
           <li><a href="/#products">Products</a></li>
           <li><a href="/blog/" {% if page.url contains '/blog/' %}class="active"{% endif %}>Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
         </ul>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <a href="/#projects" 
+             class="btn btn-primary text-sm px-6 py-2.5 hidden md:inline-flex">
+            View Work
+          </a>
+          
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" 
+                  class="mobile-menu-btn md:hidden"
+                  aria-label="Toggle navigation">
+            <span class="text-2xl">☰</span>
+          </button>
+        </div>
       </div>
     </nav>
   </header>
@@ -76,17 +92,29 @@
     {{ content }}
   </main>
 
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-links">
-          <a href="https://github.com/slashadams" target="_blank">GitHub</a>
-          <a href="/#contact">Contact</a>
-          <a href="/blog/">Blog</a>
+        <div class="text-sm text-zinc-500">
+          © {{ site.time | date: '%Y' }} Adam. Crafted with precision and a touch of dark magic.
         </div>
-        <p style="color:var(--text-muted);font-size:0.875rem;margin:0">&copy; {{ site.time | date: '%Y' }} Adam</p>
+        
+        <div class="footer-links text-sm">
+          <a href="/#about">About</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#products">Products</a>
+          <a href="https://github.com/slashadams" target="_blank">GitHub</a>
+          <a href="/blog/">Blog</a>
+          <a href="/#contact">Contact</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="/js/script.js" defer></script>
 </body>
 </html>
