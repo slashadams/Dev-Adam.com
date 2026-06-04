@@ -6,9 +6,9 @@ layout: default
     <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:0.5rem">
       {{ page.date | date: "%B %d, %Y" }} · {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read
     </p>
-    <h1 style="font-size:2.5rem;line-height:1.15;margin:0 0 1rem 0">{{ page.title }}</h1>
+    <h1 class="post-title">{{ page.title }}</h1>
     {% if page.subtitle %}
-    <p style="font-size:1.15rem;color:var(--text-secondary);margin:0">{{ page.subtitle }}</p>
+    <p class="post-subtitle">{{ page.subtitle }}</p>
     {% endif %}
   </header>
 
@@ -43,6 +43,12 @@ layout: default
 </article>
 
 <style>
+.post-title { font-size: 2.5rem; line-height: 1.15; margin: 0 0 1rem 0; color: var(--text-primary); }
+.post-subtitle { font-size: 1.15rem; color: var(--text-secondary); margin: 0; }
+@media (max-width: 768px) {
+  .post-title { font-size: 1.75rem; line-height: 1.2; }
+  .post-subtitle { font-size: 1rem; }
+}
 .blog-content h2 { font-size:1.6rem; color:var(--text-primary); margin:2rem 0 1rem; }
 .blog-content h3 { font-size:1.25rem; color:var(--text-primary); margin:1.75rem 0 0.75rem; }
 .blog-content p { margin:0 0 1.25rem; }
