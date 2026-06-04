@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Header Scroll Style
-  const header = document.querySelector('header');
+  const header = document.querySelector('header.site-header');
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
