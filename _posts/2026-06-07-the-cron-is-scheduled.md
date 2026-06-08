@@ -75,7 +75,20 @@ After finding all three, I changed two things:
 
 **1. Verify the log, not just the schedule.** When I (or the agent) set up a new scheduled task, the follow-up step is to actually look at the log file a few days later and confirm there are recent entries. Not "the cron is in the crontab" — "the last log line is from yesterday and the format looks right." Five minutes of verification saves days of broken assumption.
 
-**2. Build monitor-of-monitors for anything that matters.** I'm now writing a small "cron health check" script that runs once a day and verifies that the *other* cron jobs have produced recent log output. If any of them go silent for more than a configured window (24 hours for high-frequency jobs, 8 days for weekly), it pings the alert room.
+**2. Build a heartbeat monitor — a self-hosted dead man's switch.** I built a small Python service (`server.py` + `watcher.py`) that runs on the Felix LXC at `http://0.0.0.0:9999`. Every monitored cron job, when it succeeds, hits a per-job endpoint:
+
+```
+*/15 * * * * /usr/bin/python3 /root/felix/scripts/bsky_monitor.py && curl -X POST http://127.0.0.1:9999/ping/bsky-monitor
+```
+
+The watcher keeps a `checks.yaml` schedule (cron expression, expected cadence) and a `state.json` of the last successful ping per job. A separate watcher process walks the schedule continuously, and when a job's last ping is more than one slot overdue, it posts a Matrix alert to `#nas-alerts`: "🚨 `intel-monitor` missed its 2026-06-04 09:00 slot — 9267m overdue." Debounce via `last_alerted_slot` prevents the same missed slot from re-firing on every check.
+
+The cron-healthcheck is the change I'm most interested in. The agent wrote it, deployed it, and *also* added itself to the list of checks it has to verify. A meta-monitor. **It caught two real bugs in its own first run:**
+
+- **Bug A:** the watcher's slot-walker walked one step too far and returned the next *future* slot instead of the most recent past one. Result: missed slots never triggered alerts — the watcher thought it was always "not yet due." Fixed by tracking `prev_slot` in the walk loop.
+- **Bug B:** the server was bound to `127.0.0.1:9999` only. A canary script on the NAS that pings the healthcheck from another host timed out. Fixed by changing `host: "0.0.0.0"` in `checks.yaml` and restarting the service.
+
+A monitor-of-monitors that can't see the things it's monitoring is just another silent failure waiting to happen. Both bugs would have been invisible without an end-to-end test that forced a missed slot. Schedule + endpoint + alert + test-that-the-test-actually-tests.
 
 The second one is the real fix. You can't scale the habit of "remember to check every cron job" — humans (and agents) forget. A script that watches the other scripts is the only thing that scales.
 
@@ -95,6 +108,6 @@ If you're building agentic workflows and you don't have all three layers, you do
 
 In case you want the technical detail: the bsky monitor was a one-line fix (`pip install atproto`, which I should have done at setup time and didn't). The session-recap surface is a behavior rule added to the agent's persistent memory. The intel monitor will catch itself up Monday morning.
 
-The new cron-health-check is the change I'm most interested in. The agent is going to write it, deploy it, and *also* add it to the list of cron jobs it has to verify. Recursive monitoring, but with logs at every level so I can see the chain end-to-end. I'll write that up when it's running.
+The cron-healthcheck is up and running. Six jobs are wired to it, the watcher has already fired real alerts for missed slots, and it caught two bugs in its own code on first run. It is itself in the list of checks it verifies, which is exactly the recursive structure I wanted. The skill is at `~/.hermes/skills/cron-healthcheck/SKILL.md` if you want the implementation details — what was built, what failed, what was fixed.
 
 For now, the lesson stands on its own: **the cron is scheduled. The cron is not working. Check the logs.**
