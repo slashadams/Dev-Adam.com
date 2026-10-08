@@ -1,0 +1,297 @@
+---
+layout: default
+title: Field Service Sidekick — Register
+description: Get your own field service agent. Fill out this form and I'll spin up a Telegram bot tailored to your trade and workflow.
+---
+
+<section style="padding:4rem 0">
+  <div class="container" style="max-width:720px">
+
+    <header style="margin-bottom:3rem">
+      <h1 style="font-size:2.5rem;margin:0 0 0.75rem">Register Your Sidekick</h1>
+      <p style="color:var(--text-secondary);font-size:1.05rem;margin:0">
+        Fill this out and I'll set up a Telegram bot that remembers every job, every part, every property — so you don't have to.
+      </p>
+    </header>
+
+    <!--
+      ============================================================
+      FORM HANDLING
+      Uses Formspree (free, 50 submissions/month).
+      Replace the action URL below with your Formspree endpoint.
+      Sign up at https://formspree.io and create a new form to
+      get your unique endpoint.
+      ============================================================
+    -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID_HERE"
+          method="POST"
+          style="display:flex;flex-direction:column;gap:2rem">
+
+      <!-- ====== Section 1 ====== -->
+      <fieldset style="border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:var(--bg-card)">
+        <legend style="font-weight:700;font-size:1.2rem;color:var(--accent-light);padding:0 0.5rem">About Your Work</legend>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="trade" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">What trade / industry are you in?</label>
+          <textarea id="trade" name="trade" rows="2" placeholder="e.g. gate tech, HVAC, elevator, electrical, locksmith" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem" required></textarea>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Do you work alone or with a crew?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="crew" value="alone" required> Alone
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="crew" value="crew"> With a crew
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="trucks" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">How many service vehicles / trucks does your company run?</label>
+          <select id="trucks" name="trucks" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem" required>
+            <option value="">Select...</option>
+            <option value="1">1 (just me)</option>
+            <option value="2-3">2-3</option>
+            <option value="4-6">4-6</option>
+            <option value="7+">7+</option>
+            <option value="none">We don't run trucks</option>
+          </select>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem">If you have multiple trucks, we can track inventory per-truck and total company stock.</p>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="daily_calls" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">How many service calls on a typical day?</label>
+          <select id="daily_calls" name="daily_calls" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem" required>
+            <option value="">Select...</option>
+            <option value="1-3">1-3</option>
+            <option value="4-6">4-6</option>
+            <option value="7-10">7-10</option>
+            <option value="10+">10+</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="area" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">What area / region do you cover?</label>
+          <input id="area" name="area" type="text" placeholder="e.g. Tampa Bay area, Central Florida" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem">
+        </div>
+      </fieldset>
+
+      <!-- ====== Section 2 ====== -->
+      <fieldset style="border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:var(--bg-card)">
+        <legend style="font-weight:700;font-size:1.2rem;color:var(--accent-light);padding:0 0.5rem">How You Keep Track Now</legend>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="current_notes" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">How do you currently keep track of what you did on each call?</label>
+          <textarea id="current_notes" name="current_notes" rows="2" placeholder="e.g. notebook, phone notes, nothing, I just remember" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem"></textarea>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="forget_most" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">What's the #1 piece of information you wish you remembered when you go back to a job?</label>
+          <input id="forget_most" name="forget_most" type="text" placeholder="e.g. what we did last time, model number, part used" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem">
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="lookup_method" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">How do you look up past jobs?</label>
+          <textarea id="lookup_method" name="lookup_method" rows="2" placeholder="e.g. by property name, by address, by date, by equipment model" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem"></textarea>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Do you need to generate invoices or work orders?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="invoices" value="yes" required> Yes
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="invoices" value="no"> No
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="invoices" value="sometimes"> Sometimes
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Do you want to track parts / inventory?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="inventory_tracking" value="yes"> Yes — track what's on my truck and alert me when stock is low
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="inventory_tracking" value="no"> No — just need notes and lookups
+            </label>
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem">This is optional. You can always turn it on later.</p>
+        </div>
+      </fieldset>
+
+      <!-- ====== Section 3 ====== -->
+      <fieldset style="border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:var(--bg-card)">
+        <legend style="font-weight:700;font-size:1.2rem;color:var(--accent-light);padding:0 0.5rem">Equipment You Work With</legend>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="brands" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">What brands or models do you encounter the most?</label>
+          <textarea id="brands" name="brands" rows="3" placeholder="e.g. LiftMaster, Linear, DoorKing, ProxPoint, HID readers" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem"></textarea>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Is most of the equipment similar, or is everything different?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="equipment_mix" value="similar" required> Mostly similar
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="equipment_mix" value="different"> Everything's different
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="equipment_mix" value="mix"> Mix of both
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Do you ever need to look up manuals or specs while on site?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="manuals_needed" value="yes" required> Yes, often
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="manuals_needed" value="sometimes"> Sometimes
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="manuals_needed" value="rarely"> Rarely
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ====== Section 4 ====== -->
+      <fieldset style="border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:var(--bg-card)">
+        <legend style="font-weight:700;font-size:1.2rem;color:var(--accent-light);padding:0 0.5rem">Comfort With Tech</legend>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Do you already use Telegram or WhatsApp?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="messaging_app" value="telegram" required> Telegram
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="messaging_app" value="whatsapp"> WhatsApp
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="messaging_app" value="both"> Both
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="messaging_app" value="neither"> Neither
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Are you comfortable installing an app and scanning a QR code?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="qr_comfort" value="yes" required> Yes
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="qr_comfort" value="no"> No
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">How will you mostly talk to your agent?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="input_method" value="voice" required> Voice dictation (talking while working)
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="input_method" value="typing"> Typing
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="input_method" value="both"> Both equally
+            </label>
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem">If you'll use voice, I recommend <strong>Wispr Flow</strong> for Android — it's far more accurate for field speech than the built-in keyboard dictation.</p>
+        </div>
+      </fieldset>
+
+      <!-- ====== Section 5 ====== -->
+      <fieldset style="border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:var(--bg-card)">
+        <legend style="font-weight:700;font-size:1.2rem;color:var(--accent-light);padding:0 0.5rem">Technical Setup</legend>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="telegram_id" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">What is your Telegram username (@username)?</label>
+          <input id="telegram_id" name="telegram_id" type="text" placeholder="@yourusername" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem" required>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem">This locks your agent so only you can message it.</p>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="agent_name" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">What would you like to name your agent?</label>
+          <input id="agent_name" name="agent_name" type="text" placeholder="e.g. ServiceBot, Sidekick, your name" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem">
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label for="pet_peeves" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Any pet peeves about how AI assistants talk to you?</label>
+          <textarea id="pet_peeves" name="pet_peeves" rows="2" placeholder="e.g. too formal, too casual, too many emojis, too wordy" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem"></textarea>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Do you want a daily recap, or just ask when you need it?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="recap_frequency" value="daily" required> Send me a daily recap
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="recap_frequency" value="ondemand"> I'll ask when I need it
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="extra_notes" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Anything else you want your agent to know before getting started?</label>
+          <textarea id="extra_notes" name="extra_notes" rows="3" placeholder="Optional — workflows you do regularly, specific tools you use, anything unique about your setup" style="width:100%;padding:0.75rem;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- ====== Section 6 ====== -->
+      <fieldset style="border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:var(--bg-card)">
+        <legend style="font-weight:700;font-size:1.2rem;color:var(--accent-light);padding:0 0.5rem">Costs & Billing</legend>
+
+        <div style="margin-bottom:1rem;padding:1rem;background:var(--bg-secondary);border-radius:8px;border:1px solid var(--border)">
+          <p style="margin:0;color:var(--text-secondary);font-size:0.9rem">
+            <strong style="color:var(--text-primary)">Pricing:</strong> <strong>$149 setup</strong> + <strong>$40/month hosting</strong> (VPS managed), or <strong>$299 self-host</strong> if you have your own hardware. API usage (~$5-25/mo per user via OpenRouter) is separate.
+          </p>
+        </div>
+
+        <div>
+          <label style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Are you comfortable setting up an OpenRouter account and funding it yourself?</label>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="openrouter_comfort" value="yes" required> Yes
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="openrouter_comfort" value="help"> I'd need help with that
+            </label>
+            <label style="display:flex;align-items:center;gap:0.6rem;cursor:pointer;color:var(--text-secondary)">
+              <input type="radio" name="openrouter_comfort" value="discuss"> Not sure — let's discuss
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Submit -->
+      <div style="text-align:center">
+        <button type="submit"
+                style="padding:1rem 3rem;background:linear-gradient(135deg,var(--accent),var(--accent-hover));color:white;border:none;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 14px -4px rgba(99,102,241,0.4)"
+                onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px -4px rgba(99,102,241,0.6)'"
+                onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px -4px rgba(99,102,241,0.4)'">
+          Send Registration
+        </button>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem">I'll review your answers and follow up within 24 hours to schedule your setup call.</p>
+      </div>
+
+    </form>
+  </div>
+</section>
