@@ -92,7 +92,7 @@ The core loop is solid — log, lookup, remember. A few things I want to add:
 
 I wrote this post for a specific audience: service techs who have a drawer full of half-used notebooks and a vague sense that they've solved this exact problem before.
 
-The Field Service Sidekick is $149 to set up and $40/month for hosting, plus your own API costs (about $5-25/month per user depending on how much you use it). Or $299 one-time if you have your own hardware and want to self-host.
+The Field Service Sidekick is $149 to set up and $40/month for the first technician, plus $15/month for each additional tech on your crew. That covers hosting, updates, and AI usage — one bill, no separate token costs to track. Or $299 one-time if you have your own hardware and want to self-host.
 
 But honestly, the pricing doesn't matter if the workflow doesn't fit. I'd rather talk to you about how you track your calls now and see if this would actually help.
 
