@@ -20,11 +20,18 @@ description: Get your own field service agent. Fill out this form and I'll spin 
       Formspree endpoint — submissions forward to the account
       notification email. Configured 2026-10-09.
       Dashboard: https://formspree.io/forms/xkjobpzb
+
+      _next sends the client to our own confirmation page instead of
+      Formspree's default one. Underscore-prefixed fields are Formspree
+      control fields — they are NOT included in the submission payload,
+      so the intake monitor is unaffected.
       ============================================================
     -->
     <form action="https://formspree.io/f/xkjobpzb"
           method="POST"
           style="display:flex;flex-direction:column;gap:2rem">
+
+      <input type="hidden" name="_next" value="https://www.dev-adam.com/field-service-sidekick/thanks/">
 
       <!-- ====== Section 1 ====== -->
       <fieldset style="border:1px solid var(--border);border-radius:12px;padding:1.75rem;background:var(--bg-card)">
