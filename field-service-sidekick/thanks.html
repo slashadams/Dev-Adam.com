@@ -17,7 +17,10 @@ description: Your registration came through. Here's what happens next.
     <div style="padding:1.75rem;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:2.5rem">
       <h2 style="font-size:1.2rem;margin:0 0 1.25rem;color:var(--accent-light)">What happens next</h2>
 
-      <ol style="margin:0;padding-left:1.25rem;color:var(--text-secondary);line-height:1.7">
+      <!-- list-style is set to `none` site-wide (style.css + Tailwind Preflight),
+           so the numbering has to be re-declared inline. These steps are a real
+           sequence, so the numbers carry meaning. -->
+      <ol style="margin:0;padding-left:1.35rem;list-style:decimal;color:var(--text-secondary);line-height:1.7">
         <li style="margin-bottom:1rem">
           <strong style="color:var(--text-primary)">I read what you sent.</strong><br>
           Every answer, including the parts you probably thought didn't matter. That's the
