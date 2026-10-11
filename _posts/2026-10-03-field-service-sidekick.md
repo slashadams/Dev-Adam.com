@@ -48,7 +48,7 @@ First, the interface: Telegram. Every service tech has a smartphone. Most of the
 
 Second, the setup: I'd run a 30-minute discovery call to understand what equipment they see, how they track notes now, what they forget the most. Then I spin up their agent — a Telegram bot with their name, tuned to their trade. Their equipment gets built into the wiki as they work.
 
-Third, the hosting: It runs on a cheap VPS ($5-10/month). They set up an OpenRouter account with a $25 deposit that covers months of usage. That's it. No monthly license fees, no per-seat pricing, no "contact sales" page.
+Third, the hosting. Two options here, because not everyone wants the same thing. You can own it outright — $299 and I hand you the keys. Your hardware, your API key, and it keeps running even if you never pay me another dime. Or I run it for you: $40 a month for the first tech, and you never think about servers, updates, or API accounts. Either way, no "contact sales" page.
 
 ## How It Works Day-to-Day
 
@@ -76,7 +76,7 @@ The difference between this and every other AI agent product is:
 
 **It learns your trade.** You work on Liftmaster boards all day? The agent builds a Liftmaster knowledge base. You work on DoorKing and Chamberlain? Same thing. It adapts to whatever equipment you encounter, not the other way around.
 
-**It's owned by you.** Your data is on your VPS. Your API key is yours. If you stop paying me for setup support, the agent keeps working. No rug to pull.
+**You own it, or I run it.** Self-host and your data sits on your server with your own API key — stop paying me tomorrow and the agent keeps working. No rug to pull. Or let me run it for a flat monthly fee and never think about infrastructure again.
 
 ## What I'm Still Figuring Out
 
