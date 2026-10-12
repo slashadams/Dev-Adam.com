@@ -1,0 +1,129 @@
+---
+layout: default
+title: Privacy Policy
+description: What data the Field Service Sidekick collects, where it lives, and who else sees it.
+---
+
+<!--
+  ============================================================
+  DRAFT — plain-language starting point, NOT legal advice.
+  Written from Adam's actual stack on 2026-10-11.
+  The two sections worth a careful read before publishing:
+    §3  who else sees it (Stripe, OpenRouter, Formspree, hosting)
+    §4  what happens to text sent to the agent (it leaves the box)
+  §6 states a retention period — pick a number and match it to
+  what the offboarding phase in the runbook actually does.
+  ============================================================
+-->
+
+<section style="padding:4rem 0">
+  <div class="container" style="max-width:760px">
+
+    <header style="margin-bottom:2.5rem">
+      <h1 style="font-size:2.25rem;margin:0 0 0.5rem">Privacy Policy</h1>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin:0">Last updated: 11 October 2026</p>
+    </header>
+
+    <div style="color:var(--text-secondary);line-height:1.75;font-size:0.98rem">
+
+      <p>
+        Short version: <strong style="color:var(--text-primary)">your work records are yours,
+        I don't sell them, and I don't train AI models on them.</strong> The longer version
+        is below, because you should know exactly where things go.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">1. What I collect</h2>
+      <p><strong style="color:var(--text-primary)">When you register</strong>, the form asks about
+        how you work. In categories:</p>
+      <ul style="padding-left:1.35rem;list-style:disc">
+        <li>your trade, and the region you cover;</li>
+        <li>how your business is set up — crew size and how many vehicles you run;</li>
+        <li>your volume — roughly how many service calls you handle on a typical day;</li>
+        <li>what you see — the kinds of equipment you work on, and the brands or models you encounter most;</li>
+        <li>how you work today — how you currently keep track of calls, how you look up past jobs, the one piece of information you most wish you remembered, whether you track inventory, and how you prefer to give input;</li>
+        <li>your preferences — recap frequency, invoicing, manual lookups, and how comfortable you are installing apps;</li>
+        <li>identification and setup — <strong style="color:var(--text-primary)">your Telegram user ID</strong>, and the name you'd like your agent to have;</li>
+        <li>anything you choose to write in the free-text fields, including any pet peeves about how the agent talks to you.</li>
+      </ul>
+      <p>
+        The Telegram ID is a number that identifies your account to the messaging platform. It's
+        needed so your agent only answers you and your crew, and nobody else.
+      </p>
+      <p><strong style="color:var(--text-primary)">When you pay</strong>, Stripe processes the
+        transaction. I see whether it succeeded, the amount, and the last four digits of the
+        card. <strong style="color:var(--text-primary)">I never see or store your full card
+        number.</strong></p>
+      <p><strong style="color:var(--text-primary)">When you use the agent</strong>, it keeps
+        whatever you put into it: call logs, site notes, equipment records, contact names and
+        numbers you mention, and any other details you dictate.</p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">2. Why I collect it</h2>
+      <ul style="padding-left:1.35rem;list-style:disc">
+        <li>To configure and run an agent around how you actually work.</li>
+        <li>To keep your records for you and let you retrieve them.</li>
+        <li>To bill you and support you.</li>
+      </ul>
+      <p>That's it. It isn't used for advertising, profiling, or anything you didn't ask for.</p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">3. Who else sees it</h2>
+      <p>Running this service means a few third parties are involved. These are the ones:</p>
+      <ul style="padding-left:1.35rem;list-style:disc">
+        <li><strong style="color:var(--text-primary)">Formspree</strong> — delivers your registration form to me. It handles the form submission itself.</li>
+        <li><strong style="color:var(--text-primary)">Stripe</strong> — processes payments and holds your billing details under their own privacy policy.</li>
+        <li><strong style="color:var(--text-primary)">OpenRouter and the model providers behind it</strong> — the service that generates the agent's replies. What you send the agent is processed there. See section 4.</li>
+        <li><strong style="color:var(--text-primary)">My hosting provider</strong> — on managed plans, your agent and its records live on a server rented from a cloud provider. On self-host and Sidekick Box plans, they live on hardware you own.</li>
+        <li><strong style="color:var(--text-primary)">Telegram</strong> — the app you message the agent through. Messages travel over their platform.</li>
+      </ul>
+      <p>I don't sell your information to anyone, and I don't share it for marketing.</p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">4. What happens to what you say to the agent</h2>
+      <div style="border-left:3px solid var(--accent);background:var(--bg-secondary);padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin-bottom:1rem">
+        <p style="margin:0;color:var(--text-primary)">
+          <strong>Everything you send your agent leaves the device it was sent from.</strong>
+        </p>
+      </div>
+      <p>
+        When you dictate a call, that text is sent over the internet to a third-party AI
+        service to be understood and answered. It is not processed on your phone or on your own
+        machine alone, even on a Sidekick Box.
+      </p>
+      <p>
+        <strong style="color:var(--text-primary)">So don't put into the agent anything you
+        wouldn't be comfortable sending to a third-party service.</strong> Access codes,
+        credentials, customer payment details, or anything you're contractually obliged to keep
+        confidential belong somewhere else.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">5. What I don't do</h2>
+      <ul style="padding-left:1.35rem;list-style:disc">
+        <li>I don't sell your data.</li>
+        <li>I don't use your records to train AI models — mine or anyone else's.</li>
+        <li>I don't read your call logs for anything other than supporting you when you ask.</li>
+        <li>I don't share your records with your competitors, or with anyone who isn't listed in section 3.</li>
+      </ul>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">6. Keeping and deleting</h2>
+      <ul style="padding-left:1.35rem;list-style:disc">
+        <li><strong style="color:var(--text-primary)">Yours at any time.</strong> Ask and I'll export everything your agent holds in a readable format.</li>
+        <li><strong style="color:var(--text-primary)">Deletion on request.</strong> Ask and I'll delete it.</li>
+        <li><strong style="color:var(--text-primary)">If you leave.</strong> I'll help you export your records, then delete them from my systems once you've confirmed you have them.</li>
+        <li>Registration details and billing records are kept as long as needed to run the service and to satisfy tax and accounting requirements.</li>
+      </ul>
+      <p>
+        On self-host and Sidekick Box plans, your records live on hardware you own — deleting
+        them is something you can do yourself, without asking me.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">7. Contact</h2>
+      <p>
+        Any question about this, or any request to see or delete your data:
+        <a href="mailto:adam@dev-adam.com" style="color:var(--accent-light)">adam@dev-adam.com</a>.
+      </p>
+
+      <p style="margin-top:2.5rem">
+        <a href="/terms/" style="color:var(--accent-light)">Terms of Service →</a>
+      </p>
+
+    </div>
+  </div>
+</section>
