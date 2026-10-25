@@ -49,7 +49,7 @@ But `BatchMode` alone doesn't tell you whether your *key* worked or whether SSH 
 ```bash
 ssh -o BatchMode=yes -o ConnectTimeout=8 \
     -o PreferredAuthentications=publickey \
-    felix@10.0.100.50
+    felix@192.168.30.50
 ```
 
 `PreferredAuthentications=publickey` restricts SSH to key auth only. If that succeeds, the key works and nothing else was involved. If it fails, you know it's the key — not a password it silently found, not an agent, not a fallback.

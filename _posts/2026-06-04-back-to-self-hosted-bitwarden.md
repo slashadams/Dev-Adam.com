@@ -104,7 +104,7 @@ This time, I went a different route on the cert. No nginx, no Let's Encrypt, no 
 1. **A self-signed TLS cert** generated with `openssl req -x509 -newkey rsa:2048 -nodes -days 3650` covering the hostname and the LAN IP.
 2. **Vaultwarden running natively with TLS** — the underlying Rocket framework reads a `Rocket.toml` config file, and Vaultwarden supports `[default.tls]` with cert + key paths. One config file, no proxy.
 3. **Port 443** bound to the LXC directly.
-4. **A local DNS entry** for `vault.warden → 10.0.100.107` on my home network.
+4. **A local DNS entry** for `vault.warden → 192.168.30.107` on my home network.
 
 The whole thing came up in about 20 minutes, including the cert generation, the `compose.yml` update, and the `docker compose up -d`. The data dir from the previous install — `db.sqlite3`, `rsa_key.pem`, `config.json` — was backed up before the rebuild, just in case.
 
@@ -142,7 +142,7 @@ java.net.UnknownHostException: Unable to resolve host "vault.warden"
 
 The server-side fix worked. Now it was a DNS issue — my phone couldn't resolve `vault.warden` because the local DNS entry I'd added on my home network was on the router, and the phone wasn't picking it up the same way my computer was.
 
-The fix: change the Bitwarden app's server URL from `https://vault.warden` to `https://10.0.100.107`. The cert's SAN list includes both the hostname and the IP, so it validates either way. DNS bypassed, problem solved.
+The fix: change the Bitwarden app's server URL from `https://vault.warden` to `https://192.168.30.107`. The cert's SAN list includes both the hostname and the IP, so it validates either way. DNS bypassed, problem solved.
 
 I'm in. Vault is unlocked on the phone.
 

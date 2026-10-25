@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "I Added a Syncthing Relay to Solve a Problem That Did Not Exist"
-subtitle: "And then spent a while tuning it, before discovering that the two devices could already talk to each other directly. Plus the debounce race that generates conflict files out of perfectly normal write bursts."
+title: "Three File-Sync Problems, and None of Them Were the Tool's Fault"
+subtitle: "An unnecessary relay, a debounce race that fabricates conflicts out of normal write bursts, and a vault that had grown two incomplete indexes for the same month."
 date: 2026-11-06 00:01:00 -05:00
 tags: [syncthing, homelab, file-sync, self-hosting, networking, debugging]
 ---
@@ -18,7 +18,7 @@ That assumption was wrong, and I never checked it before building around it.
 ip route
 ```
 
-Phone at `10.0.100.15`. Agent container at `10.0.100.102`. Same subnet. **Direct path, no relay required.**
+Phone at `192.168.30.15`. Agent container at `192.168.30.102`. Same subnet. **Direct path, no relay required.**
 
 The two devices could always talk to each other. I'd added a stateful middleman to solve a connectivity problem that didn't exist, and then spent time tuning the middleman when things misbehaved.
 
@@ -77,12 +77,35 @@ With the watcher off, `rescanIntervalS="60"` catches up on its own. Source-side 
 
 If you're seeing conflict files and you go tweaking the writer's config, you'll change nothing and conclude the fix doesn't work.
 
-## What both problems have in common
+## The third problem: two indexes for one month, and neither was complete
 
-Neither was a Syncthing bug. Both were **assumptions I hadn't tested.**
+While cleaning up a wrong-path mess in the same vault, I went looking for the monthly rollups and found two of them — for the same month.
 
-The relay assumed a reachability problem. `ip route` would have disproved it in one command. The conflict files assumed a genuine data conflict; reading the timing showed it was a scan window.
+The vault keeps daily logs in a year folder, plus a monthly index. At some point the monthly index moved from `YYYY/YYYY-MM.md` to the vault root `YYYY-MM.md`, and **the older copies were never retired.** So July and August each had a root index and a year-folder index, in different formats.
 
-In both cases the tool behaved correctly given what I'd set up, and the debugging time went into making the setup more elaborate rather than checking whether the premise held.
+Neither was complete, and they didn't overlap the way you'd hope:
+
+- The year-folder July index was the detailed one — 13 dates with diagnosis and status in narrative form. It had no Jul 31.
+- The root July index was a short summary — 7 dates, out of chronological order. It *did* have Jul 31.
+
+**Take the union and you still miss Jul 1 and Jul 23** — both of which exist as daily logs on disk. August had the identical shape.
+
+Two things I would have gotten wrong by guessing:
+
+**The cutover is datable.** The root series only became the sole series in September — there's no year-folder September index at all, and the root August file starts fresh mid-month. That's how you know which generation is live, instead of picking one.
+
+**Do not rank by file size.** Auditing the files that differed between the two trees, three of the four had the *shorter* file as the authoritative version. The longer one was an older verbose draft — since reorganised and condensed, and missing later entries the shorter file carried. "The bigger file is the more complete one" inverts the answer often enough to be worse than useless.
+
+So the disposition wasn't a merge. Take either file as a base and merge, and you lose the days only the other one has; merge two lists that are each missing different days and you produce a third list you can't trust either. **It needed a build:** use the detailed copy as the base, add the dates only the other carries, and source those from the daily logs — which are the actual records.
+
+That's done now. The root series is the single canonical one, June lifted up to join it, the year folder holds daily logs only, and the rebuilt July index runs the 1st through the 31st.
+
+## What all three have in common
+
+None of this was a Syncthing bug, or a tool bug at all. All three were **assumptions I hadn't tested.**
+
+The relay assumed a reachability problem. `ip route` would have disproved it in one command. The conflict files assumed a genuine data conflict; reading the timing showed it was a scan window. The duplicate indexes assumed a merge was the fix; measuring them showed neither was complete enough to merge.
+
+In all three cases the tool behaved correctly given what I'd set up, and the debugging time went into making the setup more elaborate rather than checking whether the premise held.
 
 If you're about to add a component to a sync topology, the first question is still whether the two endpoints can see each other. Run `ip route` on both. It takes ten seconds and it would have saved me an entire detour.
