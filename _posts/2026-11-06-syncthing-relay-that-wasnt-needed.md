@@ -4,6 +4,7 @@ title: "Three File-Sync Problems, and None of Them Were the Tool's Fault"
 subtitle: "An unnecessary relay, a debounce race that fabricates conflicts out of normal write bursts, and a vault that had grown two incomplete indexes for the same month."
 date: 2026-11-06 00:01:00 -05:00
 tags: [syncthing, homelab, file-sync, self-hosting, networking, debugging]
+slug: three-file-sync-problems
 ---
 
 I have a small file-sync mesh: my phone, an LXC running my agent, and a dedicated Syncthing container. Nothing exotic.
