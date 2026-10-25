@@ -1,0 +1,51 @@
+name: Daily rebuild for scheduled posts
+
+# Jekyll's `future: false` (GitHub Pages default) excludes posts whose date is in
+# the future, and GitHub Pages only rebuilds when a commit lands on main. Without
+# a periodic commit, a post dated for next Tuesday stays invisible until something
+# else happens to be pushed.
+#
+# This workflow pushes an empty commit once a day, which triggers the normal Pages
+# build. Any post whose date has rolled into the past since yesterday's run is then
+# published. Posts can be written in a batch with future dates and will appear on
+# their own schedule.
+#
+# Why an empty commit rather than the Pages build API:
+# POST /repos/{owner}/{repo}/pages/builds returns "Resource not accessible by
+# personal access token" for the default GITHUB_TOKEN, because GitHub does not
+# support server-to-server page builds. An empty commit goes through the ordinary
+# push path, which GITHUB_TOKEN handles without any extra secret.
+#
+# Timing: this runs at 10:05 UTC = 6:05 AM EDT / 5:05 AM EST. A post is published
+# on the first run AFTER its date passes, so the guarantee is "within 24 hours",
+# not to the minute. Set post dates with an explicit offset (e.g. -04:00) so a
+# post dated 09:00 local is already in the past when this fires.
+
+on:
+  schedule:
+    - cron: '5 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-rebuild
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Push an empty commit to trigger the Pages build
+        run: |
+          git config user.name  "scheduled-rebuild"
+          git config user.email "actions@users.noreply.github.com"
+          git commit --allow-empty -m "chore: daily rebuild for scheduled posts"
+          git push origin main
