@@ -98,4 +98,4 @@ But honestly, the pricing doesn't matter if the workflow doesn't fit. I'd rather
 
 If that sounds useful, start here: **[Register your Sidekick →](/field-service-sidekick/register/)**
 
-It's not a checkout — it's an intake form. It asks about your trade, your crew, and how you currently track calls, because that's what the agent gets built around. Takes a few minutes, and it's how I work out whether this is genuinely a fit before anyone spends money on it.
+The signup page asks about your trade, your crew, and how you currently track calls, because that's what the agent gets built around. Takes a few minutes, and it's how I work out whether this is genuinely a fit before anything gets set up.
