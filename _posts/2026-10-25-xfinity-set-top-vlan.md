@@ -3,7 +3,7 @@ layout: post
 title: "Putting My Xfinity Set-Top Boxes on Their Own VLAN"
 subtitle: "Xfinity's gateway is in bridge mode and their web UI is gone, so every bit of this happens on your own router. Including the DNS trap that made the first box report no internet."
 date: 2026-10-25 12:00:00 -04:00
-tags: [homelab, networking, vlan, unifi, xfinity, pihole, self-hosting]
+tags: [homelab, networking, vlan, xfinity, pihole, self-hosting, network-segmentation]
 ---
 
 I have five Xfinity set-top boxes. One is the main box, wired over coax. The other four are Wi-Fi minis — and until today, all four were sitting on my main LAN alongside my servers, my NAS, and everything else I care about.
@@ -14,13 +14,15 @@ So I moved them onto their own VLAN. This is how, and it's worth writing down be
 
 ## The setup this applies to
 
-This is specifically for the case where **you do not use the Xfinity gateway as your router**. Mine is in bridge mode, and a UniFi Express 7 handles routing. If you're using the Xfinity gateway as your router, most of this doesn't apply to you — you'd be configuring VLANs on the Xfinity side, which is a different (and more limited) conversation.
+This is specifically for the case where **you do not use the Xfinity gateway as your router**. Mine is in bridge mode and a separate router handles routing. If you're using the Xfinity gateway as your own router, most of this doesn't apply to you — you'd be configuring VLANs on the Xfinity side, which is a different (and far more limited) conversation.
 
-Two things about that setup are worth knowing before you start:
+The specifics below are written to be router-agnostic. Terms vary between vendors — "client isolation," "device isolation," "layer 2 isolation" and so on — but the concepts map onto anything that can do VLANs and inter-VLAN firewall rules: pfSense, OPNsense, Firewalla, UniFi, OpenWrt, and so on. Where I give a concrete example, it's from my own setup and labeled as such.
+
+Two things about the bridge-mode case are worth knowing before you start:
 
 **The Xfinity web UI is gone.** You used to be able to log into the gateway at its LAN address and change settings. You can't anymore. It redirects you to the Xfinity app, and the app doesn't expose the settings the web UI did. I went looking for the MoCA settings and simply couldn't get to them.
 
-That sounds like a problem. In practice it makes the whole job easier, because **everything below happens on your own router**, where you have real API access and real control. Nothing here requires touching the gateway.
+That sounds like a problem. In practice it makes the whole job easier, because **everything below happens on your own router**, where you have real control. Nothing here requires touching the gateway.
 
 **The gateway still does one thing you can't take over:** it hands out the TV signal over coax to the main box. That's fine. It's one-way broadcast — no data path into your network. Leave it alone.
 
@@ -28,71 +30,78 @@ That sounds like a problem. In practice it makes the whole job easier, because *
 
 Three reasons, in the order they actually matter to me:
 
-**Containment.** A set-top box runs someone else's firmware with someone else's update cadence. If one gets compromised, I don't want it on the same segment as my NAS. On its own VLAN with isolation on, it can't initiate anything into my main network.
+**Containment.** A set-top box runs someone else's firmware with someone else's update cadence. If one gets compromised, I don't want it on the same segment as my NAS. On its own VLAN with isolation enabled, it can't initiate anything into my main network.
 
 **Visibility.** Once they're behind their own VLAN, I know exactly what that segment can reach, and I can log it. Before, they were just four more devices mixed in with everything else.
 
-**Containment against each other.** These boxes don't need to talk to each other. With L2 isolation on, one compromised box can't pivot to the other three.
+**Containment against each other.** These boxes don't need to talk to each other. With client isolation on at the wireless layer, one compromised box can't pivot to the other three.
 
 What this deliberately does **not** do is reduce telemetry. That's a DNS filtering job, and it's separate. If you want the boxes to stop phoning home, that's Pi-hole, not VLANs. Think of this as the boundary; filtering is the fence.
 
 ## The build
 
-On the UniFi side, create a new network:
+Create a new VLAN and a wireless network mapped to it. The settings that matter:
 
-- **Subnet:** `192.168.30.1/24`
-- **VLAN:** 30
-- **DHCP pool:** `.6` through `.254`
-- **Isolation:** `network_isolation_enabled: true`
-- **mDNS:** on
-- **DNS:** point it at your Pi-holes
+- **A dedicated subnet**, sized for the number of boxes you have
+- **Client / device isolation enabled on that network.** This is the setting that stops the VLAN from reaching your other subnets
+- **mDNS enabled**, if you want casting or discovery to have any chance of working (see the failure section below)
+- **DNS pointed at your Pi-holes**, so you get visibility into what the boxes resolve
+- **A new SSID bound to that VLAN and nothing else**
+- **Wireless client isolation enabled on the SSID**, so the boxes can't talk to each other
 
-Then a new SSID mapped to that VLAN:
-
-- **Band:** both
-- **L2 isolation:** `true`
-- **Security:** WPA2
-
-A few notes on those choices.
+Three notes on those choices.
 
 **Point the DNS at Pi-hole.** It's what gives you the visibility, which is half the point. It also sets up the trap I'll get to in a second.
 
-**Turn L2 isolation on.** There's a common assumption that set-top boxes need to talk to each other for multi-room DVR. That assumption was the thing I got wrong twice — see the section below. On my setup it turned out not to matter, and isolation is a real containment win.
+**Turn client isolation on.** There's a common assumption that set-top boxes need to talk to each other for multi-room DVR. That assumption was the thing I got wrong twice — see the section below. On my setup it turned out not to matter, and isolation is a real containment win.
 
-**Leave `internet_access_enabled` on.** Isolation blocks client-to-client traffic. It does not block the internet, and you need the internet for these boxes to function at all.
+**Don't block the internet.** Isolation is about blocking traffic between *your* networks. These boxes need outbound internet access to function at all, so make sure your isolation setting doesn't touch the WAN path. On some platforms those are separate toggles; on others you need an explicit allow rule.
 
 ## The trap: isolation and DNS are in direct conflict
 
 This is the part worth the whole post.
 
-I moved the first box over. It associated to the new SSID, landed on VLAN 30, and pulled a DHCP address. And then it told me it had no internet.
+I moved the first box over. It associated to the new SSID, landed on the new VLAN, and pulled a DHCP address. And then it told me it had no internet.
 
 I spent a while on the wrong causes. It wasn't the cable. It wasn't the radio. It was this:
 
-**`network_isolation: true` blocks the VLAN from reaching anything on your other subnets — including the Pi-holes I'd just told it to use for DNS.**
+**Isolation blocks the VLAN from reaching anything on your other subnets — including the Pi-holes I'd just told it to use for DNS.**
 
 The box could resolve nothing. No DNS means no internet as far as any device is concerned, even with a perfectly good DHCP lease and a working gateway.
 
 This is a genuinely easy trap to fall into, because every individual setting looks correct. You enable isolation for good security reasons. You point DNS at your Pi-hole for good filtering reasons. And those two correct decisions are mutually exclusive by default.
 
-**The fix is a firewall rule that permits exactly one thing:** traffic from the isolated VLAN to the Pi-holes.
+**The fix is a firewall rule that permits exactly one thing:** traffic from the isolated VLAN to your DNS servers, inbound to them.
 
-Create an address group containing your Pi-hole addresses — I called mine `pi-holes`, with two entries. Then a `LAN_IN` accept rule:
+In vendor-neutral terms, you want:
+
+- A **source** of the new VLAN's subnet
+- A **destination** of an address group containing your DNS servers
+- An **accept** action, applied to traffic arriving at your main network from that VLAN
+- **Logging on**, so you can see what the boxes actually ask for
+
+The important discovery: **a firewall rule of this kind does override isolation.** The box came back the moment that rule landed. You don't have to choose between isolation and filtered DNS — you just have to write the exception deliberately.
+
+### The same thing on my setup
+
+I run UniFi, and in its legacy firewall API that rule looks like this:
 
 ```
 name:                    Xfinity DNS to pi-holes
 ruleset:                 LAN_IN
 action:                  accept
 protocol:                all
-src_networkconf_id:      <the Xfinity VLAN>
+src_networkconf_id:      <the new VLAN>
 dst_firewallgroup_ids:   [pi-holes]
 enabled:                 true
 logging:                 true
 ```
 
-The important discovery: **a firewall rule does override `network_isolation`.** The box came back the moment that rule landed. You don't have to choose between isolation and filtered DNS — you just have to write the exception deliberately.
+Two UniFi-specific caveats, both of which have analogues elsewhere:
 
-**Set `logging: true` on it.** You want to see what those boxes actually ask for.
+**`protocol: all` because the legacy API has no port field.** That means the VLAN can reach the Pi-holes on every port they listen on, not just DNS — including their web admin interfaces. Both need credentials, so it isn't an open door, but it's wider than it should be. If your platform lets you scope to port 53, do that. UniFi's newer zone-based firewall API supports ports; migrating is a project, not an edit.
+
+**`LAN_IN` is UniFi's name for traffic arriving at the LAN from another LAN.** Your platform will call it something else — on pfSense this is a normal interface rule on the destination, on OPNsense it's a firewall rule on the receiving interface. The concept is the same: allow this one flow that the isolation setting would otherwise block.
 
 ## The gotcha nobody documents: changing the Wi-Fi on an Xi6
 
@@ -112,7 +121,7 @@ If you're the kind of person who starts pressing buttons when something doesn't 
 
 After moving a box, it will associate to the new SSID, get tagged onto the new VLAN, and **keep its old IP address from the previous network.**
 
-I watched a box sit on `192.168.1.204` — an address from my main LAN — while its UniFi client record said it was on the new VLAN.
+I watched a box sit on `192.168.1.204` — an address from my main LAN — while my router's client list said it was on the new VLAN.
 
 Here's why it still mostly works: my router is multi-homed, so its main-LAN address is reachable from the new VLAN, and it answers. Internet works. Apps work. Live TV works.
 
@@ -120,7 +129,7 @@ A DHCP client renews at 50% of its lease. Mine is 24 hours, so the box doesn't a
 
 **Just wait.** Mine corrected itself — one box sat stale for a while, then quietly picked up `192.168.30.203` and never looked back. Don't power-cycle, don't factory-reset, don't chase it. It resolves on its own.
 
-If you're watching the UniFi client list and a box shows no IP at all, that's also not a fault — the controller's view lags what the device is actually doing. Test the service on the device rather than trusting the field.
+If your router's client list shows no IP for the box at all, that's also not a fault. A controller's view lags what the device is actually doing, and a missing field is not the same as a broken device. **Test the service on the device instead** — open an app, play a recording. That tells you more than any status column.
 
 ## The thing I got wrong twice
 
@@ -144,7 +153,7 @@ I built a second VLAN the same day for my Chromecasts and Google TV streamers, r
 
 **Casting broke.** The device appeared in the cast list — discovery worked, because mDNS was passing — but the connection never completed.
 
-The reason is that casting is inherently two-way. Your phone reaches the device to start playback, and the device connects back. `network_isolation` is a one-way block, and no rule I write bridges that without removing the isolation entirely, at which point the VLAN isn't doing anything.
+The reason is that casting is inherently two-way. Your phone reaches the device to start playback, and the device connects back. Isolation is a one-way block, and no rule I write bridges that without removing the isolation entirely, at which point the VLAN isn't doing anything.
 
 So that VLAN exists and is correctly built, and it can't do the job I designed it for. If your goal is isolating cast targets, the honest answer is: **you can't isolate a device you need to cast to.** Segment the things that only consume — your cable boxes, your smart TV's built-in apps — and leave the cast targets where they are.
 
@@ -152,16 +161,17 @@ I'd rather write that down than pretend the second VLAN worked.
 
 ## What I'd still improve
 
-**Both my allowances are `protocol: all`.** The legacy UniFi firewall API has no port field, so I can't scope the DNS rule to port 53. In practice that means the isolated VLAN can reach the Pi-holes on every port they listen on, not just DNS — including their web admin interfaces. Both need credentials, so it's not an open door, but it's wider than it should be. Newer UniFi firmware has a zone-based firewall API that does support ports; moving to it is a project, not an edit.
+**Both my allowances are wider than they should be.** My platform's older API can't scope a rule to a port, so the DNS exception grants more than DNS. If yours can do port-scoped rules, do it properly from the start — this is the kind of shortcut that's easy to leave in place for years.
 
-**The same trap hit three networks.** I hit the DNS/isolation conflict on the set-top VLAN, then again on the casting VLAN, then a third time on my IoT VLAN — where it looked like a sudden failure the next morning, because the devices held live connections until the lease renewed and forced a fresh DNS lookup. Every isolated network that uses Pi-hole for DNS needs its own allowance rule, and you should create it at the same time you create the network. Learn from my three trips around that loop.
+**The same trap hit three networks.** I hit the DNS/isolation conflict on the set-top VLAN, then again on the casting VLAN, then a third time on my IoT VLAN — where it looked like a sudden failure the next morning, because the devices held live connections until the lease renewed and forced a fresh DNS lookup. **Every isolated network that uses Pi-hole for DNS needs its own allowance rule, and you should create it at the same time you create the network.** Learn from my three trips around that loop.
 
 ## The short version
 
 - Bridge mode means this is all your router's job, and that's a good thing
-- **`network_isolation` blocks access to your Pi-holes if they're on another VLAN.** This is the trap
-- A single `LAN_IN` accept rule to the Pi-holes fixes it, and it does override isolation
+- **Isolation blocks access to your Pi-holes if they're on another VLAN.** This is the trap
+- One firewall rule permitting the new VLAN to reach your DNS servers fixes it, and it does override isolation
+- Every isolated network needs its own copy of that rule — build it when you build the network
 - Changing Wi-Fi on an Xi6: WPS button, wait two minutes, don't press anything
-- A stale IP after moving is normal and resolves itself
+- A stale IP after moving is normal and resolves itself — test the service, not the status field
 - Change one variable at a time, or you'll credit the wrong fix like I did
 - You can't isolate a device you need to cast to
