@@ -2,7 +2,7 @@
 layout: post
 title: "I Added a Syncthing Relay to Solve a Problem That Did Not Exist"
 subtitle: "And then spent a while tuning it, before discovering that the two devices could already talk to each other directly. Plus the debounce race that generates conflict files out of perfectly normal write bursts."
-date: 2026-11-06 00:01:00 -04:00
+date: 2026-11-06 00:01:00 -05:00
 tags: [syncthing, homelab, file-sync, self-hosting, networking, debugging]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Moving a Container Between Two Unclustered Proxmox Nodes"
 subtitle: "No live migration, so it's stop, dump, restore. Five things that bite you on the way — including an exit code that reports success while the job is still running, and a check that matched its own command line."
-date: 2026-11-04 00:01:00 -04:00
+date: 2026-11-04 00:01:00 -05:00
 tags: [proxmox, homelab, lxc, migration, zfs, nfs, devops]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Self-Hosting Matrix: The Logout You Didn't Ask For, and Why Your Read Receipts Vanish"
 subtitle: "A fresh login silently invalidates the token your other client is using. And typing indicators aren't broken — they're ephemeral by design, which is why they never come back."
-date: 2026-11-08 00:01:00 -04:00
+date: 2026-11-08 00:01:00 -05:00
 tags: [matrix, conduit, self-hosting, homelab, proxmox, chat]
 ---
 

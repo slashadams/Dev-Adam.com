@@ -2,7 +2,7 @@
 layout: post
 title: "Three Tokens in the Portal, and Only One of Them Is the Right One"
 subtitle: "A vendor API where the obvious credential expires in an hour and the correct one is buried at the bottom of the list. Plus why you should fetch the OpenAPI spec before writing a single line against it."
-date: 2026-11-12 00:01:00 -04:00
+date: 2026-11-12 00:01:00 -05:00
 tags: [api, automation, security, homelab, tooling, lessons-learned]
 ---
 

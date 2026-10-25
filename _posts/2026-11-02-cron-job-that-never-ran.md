@@ -2,7 +2,7 @@
 layout: post
 title: "My Drive Health Check Never Ran Once. For Four Months."
 subtitle: "The cron file looked perfect. Cron was refusing to load it the entire time, and the health check that exists to catch a failing drive was caught by a different tool instead."
-date: 2026-11-02 00:01:00 -04:00
+date: 2026-11-02 00:01:00 -05:00
 tags: [homelab, cron, nas, zfs, monitoring, smart, lessons-learned]
 ---
 
