@@ -42,7 +42,7 @@ Two phones in this house are Galaxy S26s. In the same client list, a second **Ga
 
 UniFi's device database had matched the wrong model string and labelled an S26 as a Z Fold 7. The randomized MAC was Samsung's default privacy behaviour, which is on by default on essentially every modern phone, per network — not a signal that someone was hiding.
 
-There was no intruder. A string in a device database was wrong.
+There was no intruder. The phone was one of the two S26s already sitting in that client list — the same one the app had shown as disconnected. A string in a device database was wrong.
 
 ## What I'd take from it
 
@@ -54,8 +54,8 @@ There was no intruder. A string in a device database was wrong.
 
 **The real tell was a missing device, not a strange one.** A second S26 sat in the same list marked disconnected. I was looking at the wrong anomaly entirely — I had an unexplained device when I should have been looking for an unaccounted-for one.
 
-## The loose end, and how to close it
+## The loose end, and how I closed it
 
-Randomized MACs are stable per SSID, so the phone behind all of this should still be holding the same address. Matching the flagged address against a named phone in the client list takes about five seconds, and it's the difference between "almost certainly that phone" and "confirmed."
+Randomized MACs are stable per SSID, so the phone behind all of this was still holding the same address. Matching the flagged address against a named phone in the client list took about five seconds, and it settled it: the address belongs to one of the two S26s in the house. "Almost certainly that phone" became "confirmed."
 
-A plausible explanation and a confirmed one look identical until you run that check. I'd run it before writing anything up — which is an argument for running it first, not last.
+That's the part worth keeping. A plausible explanation and a confirmed one look identical until you run the check, and I had a story ready long before I had an answer. Confirming it was the cheapest step in the whole investigation and the last one I took — which is an argument for running it first.
