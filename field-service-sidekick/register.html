@@ -13,7 +13,7 @@ description: Get your own field service agent. Fill out this form and I'll spin 
         Fill this out and I'll set up a Telegram bot that remembers every job, every part, every property — so you don't have to.
       </p>
       <p style="color:var(--text-muted);font-size:0.9rem;margin:0">
-        Nine questions, about two minutes. The detailed setup — the equipment you work on, your workflows, how you want your agent to talk to you — we'll cover together on the setup call.
+        Nine questions, about two minutes — plus one more if you run a crew. The detailed setup (the equipment you work on, your workflows, how you want your agent to talk to you) we'll cover together on the setup call.
       </p>
     </header>
 
@@ -67,6 +67,22 @@ description: Get your own field service agent. Fill out this form and I'll spin 
             <option value="7+">7+</option>
             <option value="none">We don't run trucks</option>
           </select>
+        </div>
+
+        <!-- Fleet daily report. Hidden by default; revealed by the script at the
+             bottom of this page when crew/trucks indicate more than one tech or
+             vehicle. The email input carries no `required` attribute in the
+             markup — the script adds it when the block is shown and removes it
+             when hidden, so a solo tech is never silently blocked by a field
+             they cannot see. -->
+        <div id="report-block" style="display:none;margin-bottom:1.25rem;padding:1rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px">
+          <p style="margin:0 0 0.4rem;font-weight:700;color:var(--text-primary)">Daily crew report</p>
+          <p style="margin:0 0 0.9rem;color:var(--text-secondary);font-size:0.9rem">
+            You run a fleet, so your Sidekick compiles one report a day &mdash; every call your techs logged today, gathered into a single email. It's included; there's nothing extra to buy.
+          </p>
+          <label for="report_email" style="display:block;font-weight:600;margin-bottom:0.4rem;color:var(--text-primary)">Where should the daily report go?</label>
+          <input id="report_email" name="report_email" type="email" placeholder="e.g. office@yourcompany.com" style="width:100%;padding:0.75rem;background:var(--bg-card);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-family:inherit;font-size:0.95rem">
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem">Usually the owner or whoever runs the office. You can change it, add more recipients, or set the send time later &mdash; we'll confirm on the setup call.</p>
         </div>
 
         <div>
@@ -171,3 +187,37 @@ description: Get your own field service agent. Fill out this form and I'll spin 
     </form>
   </div>
 </section>
+
+<script>
+// Fleet daily report — shown only when the answers indicate more than one
+// technician or more than one vehicle. `required` is toggled with visibility:
+// a hidden required field blocks submit with no visible error.
+(function () {
+  var block = document.getElementById('report-block');
+  var email = document.getElementById('report_email');
+  if (!block || !email) return;
+
+  function isFleet() {
+    var crew = document.querySelector('input[name="crew"]:checked');
+    var trucks = document.querySelector('select[name="trucks"]');
+    var t = trucks ? trucks.value : '';
+    return t === '2-3' || t === '4-6' || t === '7+' || (crew && crew.value === 'crew');
+  }
+
+  function sync() {
+    var show = isFleet();
+    block.style.display = show ? 'block' : 'none';
+    if (show) {
+      email.setAttribute('required', 'required');
+    } else {
+      email.removeAttribute('required');
+      email.value = '';
+    }
+  }
+
+  var controls = document.querySelectorAll('input[name="crew"], select[name="trucks"]');
+  for (var i = 0; i < controls.length; i++) controls[i].addEventListener('change', sync);
+  window.addEventListener('pageshow', sync); // covers bfcache restore
+  sync();
+})();
+</script>
