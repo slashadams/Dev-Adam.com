@@ -65,6 +65,12 @@ And the two most-used skills in that tree — 45 uses and 41 uses, against a fie
 
 That's the part that made this worth doing rather than mildly tidying. Usage wasn't tracking usefulness. It was tracking how well a sentence survived a truncation I didn't know about.
 
+## What's new here, and what isn't
+
+Most of this idea isn't mine. There's a body of work in the MCP tool world on exactly this problem — a paper that formalises ["tool description smells"](https://arxiv.org/abs/2602.14878), and a broad consensus that a tool description is prompt engineering rather than documentation. Their measurement is the same failure seen from the other side: missing usage guidance shows up in nearly 90% of the descriptions they surveyed.
+
+What I couldn't find anywhere was a hard **character budget** on the routing metadata itself — a silent ceiling that decides half of what the model is allowed to consider — or any measurement of the question sitting underneath. Not "was this skill used," but "should this one have been used, and it wasn't." That second half is the part I hadn't seen anyone build, and it's where the number above came from.
+
 ## What we built
 
 **A retitle pass.** Every description rewritten to `Use when <situation>. <what it does>.`, with the trigger clause inside the first 57 characters. Driven by one shared map of 133 entries rather than three hand-edited lists, so three trees can't drift apart. Dry-run by default, idempotent, and it refuses to write anything over the limit.
