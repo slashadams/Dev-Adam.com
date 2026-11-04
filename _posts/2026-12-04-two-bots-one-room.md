@@ -2,7 +2,7 @@
 layout: post
 title: "Two Bots in One Room, and Neither Could Hear the Other"
 subtitle: "Both agents were in the chat, both had posted there, and nothing errored. One of them had never received a single message from the other — and a ✅ reaction nearly convinced me it was working."
-date: 2026-11-28 00:01:00 -05:00
+date: 2026-12-04 00:01:00 -05:00
 tags: [ai-agents, matrix, self-hosting, hermes, monitoring]
 ---
 
