@@ -4,6 +4,12 @@ title: "My Network Checker Never Asks for Your Router Password"
 subtitle: "Every tool in this space wants admin credentials or a vendor cloud account. The useful half of the job needs neither — and building it that way is the reason it works on any router."
 date: 2026-11-06 00:01:00 -05:00
 tags: [networking, security, homelab, ai-agents, developer-tools, side-projects]
+bsky: |
+  Every network security tool I looked at wants your router's admin password or a vendor cloud account.
+  
+  Built one that wants neither. The machine running the check is already inside the network — the ARP table, what's listening, which cert expires when.
+  
+  Writeup: link in bio.
 ---
 
 I've been building a network checker, and the design constraint came before any code: **it never asks for a router username or password.**

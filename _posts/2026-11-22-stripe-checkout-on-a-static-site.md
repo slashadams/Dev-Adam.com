@@ -4,6 +4,14 @@ title: "Stripe Checkout Needs a Server. My Site Doesn't Have One."
 subtitle: "Stripe's own setup assistant told me to add an endpoint to my server framework. I have neither. Here's what actually works when your site is static files and a CDN."
 date: 2026-11-22 00:01:00 -05:00
 tags: [stripe, payments, static-site, jekyll, github-pages, side-projects]
+bsky: |
+  I sell a small product. My site is static files on a CDN — no server, no routes, nowhere to keep a secret key.
+  
+  Stripe's setup assistant told me to add an endpoint to my server framework. I have neither.
+  
+  Payment links and invoices covered it. Zero code.
+  
+  Link in bio.
 ---
 
 I sell a small software product. I needed a way to take money for it. My website is static Jekyll on GitHub Pages — files and a CDN, nothing else.

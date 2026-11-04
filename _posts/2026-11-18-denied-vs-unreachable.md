@@ -4,6 +4,12 @@ title: "\"Denied\" Is a Claim About a Credential. \"Unreachable\" Is a Claim Abo
 subtitle: "I reported my own NAS as unreachable because my sweep used the same username on every machine. The user who set it up had to point out that he set it up."
 date: 2026-11-18 00:01:00 -05:00
 tags: [homelab, ssh, automation, devops, operations, lessons-learned]
+bsky: |
+  My homelab sweep reported my own NAS as unreachable. I'd set that NAS up myself.
+  
+  The NAS was fine. My sweep used the same username on every host.
+  
+  "Denied" is about a credential. "Unreachable" is about a host. Not the same problem.
 ---
 
 I run a sweep across my homelab to check which hosts are reachable. Straightforward: loop over the addresses, try to connect, report the results.

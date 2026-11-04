@@ -4,6 +4,12 @@ title: "SMART Said PASSED. The Drive Was at 102% of Its Rated Life."
 subtitle: "One of my agents stopped answering while the other kept working — and underneath both of them was a disk reporting itself healthy while it corrupted its database."
 date: 2026-12-02 00:01:00 -05:00
 tags: [homelab, proxmox, storage, matrix, self-hosting, monitoring]
+bsky: |
+  SMART said PASSED. The drive was at 102% of its rated life.
+  
+  One of my agents stopped answering while the other kept working — which is why I spent an hour looking at the agent instead of the disk underneath it.
+  
+  Link in bio.
 ---
 
 One of my agents stopped answering me. The other one kept working.
