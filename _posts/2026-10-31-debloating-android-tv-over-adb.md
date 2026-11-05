@@ -5,11 +5,9 @@ subtitle: "adb connect with an IP and port will never work on a TV. Debian's adb
 date: 2026-10-31 00:01:00 -04:00
 tags: [android-tv, adb, debloat, homelab, google-tv, privacy, howto]
 bsky: |
-  `adb connect <ip>:5555` never works on a TV. It sits at "offline" forever while the port stays open, so you chase ports that were never the problem.
+  My Google TV Streamer wouldn't take a WiFi ADB connection. It sat at "offline" while the port stayed open, so I chased port numbers that were never the problem.
   
-  It advertises an mDNS service. Address it by that serial.
-  
-  Four ways Android TV differs from phones, each error pointing elsewhere.
+  The device advertises itself over mDNS — you reach it by that, not its IP. No error tells you so.
 ---
 
 I wanted the advertising and telemetry packages off my Google TV Streamer. It's an Android device, so `adb` is the way — the actual tooling is fine, the device is cooperative, and the whole job should take fifteen minutes.
