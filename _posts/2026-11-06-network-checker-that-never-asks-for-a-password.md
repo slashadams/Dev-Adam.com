@@ -49,11 +49,7 @@ That's the difference between a tool that supports one vendor and a tool that ha
 
 The design choice I'm happiest with is the one most tools get wrong.
 
-When the UniFi adapter isn't enabled, a check that needs it doesn't quietly pass. It says so:
-
-```
-SKIPPED [permissive_rule] requires unifi
-```
+When the UniFi adapter isn't enabled, a check that needs it doesn't quietly pass. It reports itself as skipped, names the check, and names the collector that was missing — rather than returning a clean result for a check it never ran.
 
 A monitor that stays silent about a gap trains you to trust it about everything. I'd rather it announce the hole every run than let me assume a clean report means a complete one.
 

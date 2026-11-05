@@ -20,11 +20,7 @@ This is the same problem on Windows, except Windows has a second failure mode th
 
 This is the fact the whole design hangs on.
 
-```
-Get-AppxPackage              # the per-user install
-Remove-AppxPackage           # deletes that one
-Get-AppxProvisionedPackage   # what installs for NEW user accounts
-```
+Windows keeps two copies of any app that ships with the OS: the copy installed into your user account, and the copy baked into the system image that gets installed for **new** user accounts. They're separate things with separate removal commands, and the command that lists them isn't the one that deletes them.
 
 **Remove only the per-user package and it comes back.** Not immediately — for the *next* account created on that machine, and sometimes after an update. The system image still carries the package, so the per-user copy you deleted was never the real copy.
 
@@ -68,12 +64,7 @@ Non-negotiable, for two reasons. Those are the parts Microsoft actively fights b
 
 The scope isn't Windows only — that's just the biggest surface. The interesting half is media devices, because that's where the ads are and where the platforms fight hardest.
 
-On Fire OS, for example:
-
-```
-pm disable-user com.amazon.tv.launcher
-Cannot disable a protected package
-```
+On Fire OS, for example, the command that disables an app comes straight back with "Cannot disable a protected package."
 
 Amazon protects its own launcher outright. So on Fire TV you're largely limited to disabling, not removing — and the protected set grows with each OS release. The `pm disable-user` mechanics are the same ones from the ADB post; the lockout is new.
 
