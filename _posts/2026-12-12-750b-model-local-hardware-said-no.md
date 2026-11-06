@@ -7,7 +7,7 @@ tags: [local-llm, homelab, proxmox, moe, self-hosting]
 devto: true
 ---
 
-NetworkChuck put out [a video](https://youtu.be/cFdoXn6yvE4) about a box called the WiCi One that runs a 750-billion-parameter model on 32 GB of VRAM. Normally that model wants over 500 GB of memory. My first reaction was the same as everyone's: that shouldn't work.
+NetworkChuck put out [a video about it](https://youtu.be/cFdoXn6yvE4) — a box called the WiCi One that runs a 750-billion-parameter model on 32 GB of VRAM. Normally that model wants over 500 GB of memory. My first reaction was the same as everyone's: that shouldn't work.
 
 It does work. But the box isn't the story.
 
@@ -74,7 +74,7 @@ $ lscpu | grep "Model name"
 Model name:  Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
 ```
 
-It's a laptop. An OMEN 17 from 2019 that's been running as a server node for five months, which I'd honestly forgotten the form factor of until I typed that command.
+It's a laptop. An OMEN 17 from 2019, and it's been running as a server node for about eight months now.
 
 **6 GB of VRAM.** **15 GB of RAM.** No tensor cores — it's Turing, from before they were standard.
 
