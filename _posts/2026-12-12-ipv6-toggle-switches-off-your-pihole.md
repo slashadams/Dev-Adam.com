@@ -3,7 +3,7 @@ layout: post
 devto: true
 title: "The IPv6 Toggle That Quietly Switches Off Your Pi-hole"
 subtitle: "A router prompt that reads like a free upgrade, on a network whose DNS filtering is written entirely in IPv4."
-date: 2026-12-10 00:01:00 -05:00
+date: 2026-12-12 00:01:00 -05:00
 tags: [networking, ipv6, dns, pi-hole, self-hosting, homelab]
 bsky: |
   My router popped up a friendly box: "We detected IPv6 from your ISP. Enable it?"

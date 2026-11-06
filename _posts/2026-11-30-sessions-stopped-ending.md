@@ -2,7 +2,7 @@
 layout: post
 title: "My Sessions Stopped Ending, and Nothing Told Me for 43 Days"
 subtitle: "Hermes retired timer-based conversation rotation. My config still declared it, the setting still parsed, and every new turn re-billed the entire conversation it was supposed to have ended."
-date: 2026-11-28 00:01:00 -05:00
+date: 2026-11-30 00:01:00 -05:00
 tags: [ai-agents, hermes, self-hosting, debugging, cost, context]
 ---
 

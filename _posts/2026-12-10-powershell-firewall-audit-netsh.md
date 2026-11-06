@@ -3,7 +3,7 @@ layout: post
 devto: true
 title: "The 90-Second Firewall Audit One netsh Line Fixes"
 subtitle: "A PowerShell one-liner that looks like a single query was quietly running one query per rule. The fix wasn't a bigger timeout — it was a native command that does the whole job in a second."
-date: 2026-12-08 00:01:00 -05:00
+date: 2026-12-10 00:01:00 -05:00
 tags: [windows, powershell, networking, troubleshooting, self-hosting]
 bsky: |
   My Windows firewall check kept timing out at 90 seconds. The cmdlet that looked like one query was running one query per rule — about 280 of them.

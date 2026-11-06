@@ -3,7 +3,7 @@ layout: post
 devto: true
 title: "I Port-Scanned the Intruder and It Got Faster"
 subtitle: "An unknown device on my network, a model name nobody owns, and a latency reading that was lying to me the entire time."
-date: 2026-11-30 00:01:00 -05:00
+date: 2026-12-02 00:01:00 -05:00
 tags: [networking, homelab, unifi, security, troubleshooting]
 bsky: |
   An unknown device on my network. A Galaxy Z Fold 7 — nobody in this house owns one. Randomized MAC, no vendor to look up. 300-500ms latency from something supposedly sitting two rooms away.
