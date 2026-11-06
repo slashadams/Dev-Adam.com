@@ -11,6 +11,8 @@ NetworkChuck put out [a video](https://youtu.be/cFdoXn6yvE4) about a box called 
 
 It does work. But the box isn't the story.
 
+Why it's worth caring about even if you never buy one: a frontier-class model ran on consumer hardware, locally, with no cloud and no meter running. Two years ago that sentence wasn't true at any speed. The threshold for "what a normal person can run at home" just moved, and it moved a lot.
+
 I went in expecting to be sold a $2,600 appliance and came out wanting to run the software underneath it on hardware I already own. Then I actually measured my hardware, and it turned out to be a hard no.
 
 Here's the whole thought process, because the reason it fails is more useful than the product.
@@ -36,6 +38,24 @@ Second, you need somewhere to keep the rest. That's the SSD. The whole model liv
 The catch is that SSDs are slow, and they're much slower than their spec sheet when you're doing millions of tiny 4 KiB reads instead of one big file copy. That's the problem InferSSD actually solves: it rewrites the model files so every expert is the same size and aligned, reads them in batches, caches the popular experts in RAM, and splits the math between CPU and GPU based on where the weights came from.
 
 On a fast PCIe 4.0/5.0 NVMe it gets DeepSeek V4.1 Flash to about **7.3 tokens/sec** on an RTX 5090, and **2.5 tokens/sec** on an RTX 5060 Ti. Slow, but real. A frontier-class model, on your desk, with no API bill.
+
+## Why this is a bigger deal than one box
+
+A few years ago "local AI" meant a 7B model that could answer simple questions and fall apart on anything hard. The interesting thing about this video is which models it names as the local options: DeepSeek V4.1, Kimi K3, GLM 5.3. Those aren't toys. They're the open-weight models people describe as *close* to the closed frontier — the ones you'd actually choose to use if you had somewhere to run them.
+
+The gap between "the model everyone uses" and "the model I can run myself" has been shrinking for a while. The thing that's been stuck is the last mile: the good ones are huge, and huge has meant a data centre. This is one of the first credible answers to that last mile, and the answer is a trade — you swap speed for capacity, and you use the SSD you already have instead of memory you'd have to mortgage a house to buy.
+
+I think the consumer version of this matters more than the enterprise version, for a few reasons.
+
+**It's a subscription that turns into a purchase.** Right now, using a good model means a monthly bill and a per-token meter, forever. If the frontier-class open models get runnable at home, that stops being a rent payment and starts being a piece of hardware — like buying a printer instead of paying per page. The economics flip from recurring to one-time, and one-time is a much better deal for a household.
+
+**Nobody's account can be turned off.** No provider deprecating the model you built your workflow on, no policy change, no rate limit, no outage. Your agent keeps working when the internet doesn't.
+
+**The data doesn't leave the house.** Not a privacy slogan — it's just arithmetic. The tokens never cross the network.
+
+**And the "family GPU" idea is a genuinely new shape.** One GPU on the network that a laptop, a tablet, and a phone all share, instead of a graphics card locked inside one gaming rig. That's the family computer pattern from the nineties, applied to compute. For a household with three people, three laptops, and no gaming desktop each, it's a much better fit than the way we buy this today.
+
+None of that is here yet. It's slow, the hardware floor is real, and the box in the video is expensive. But the direction is unmistakable, and I'd rather track it honestly than either dismiss it or pretend I already own it.
 
 ## So I checked my own hardware
 
