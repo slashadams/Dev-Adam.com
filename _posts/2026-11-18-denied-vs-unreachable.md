@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "\"Denied\" Is a Claim About a Credential. \"Unreachable\" Is a Claim About a Host."
 subtitle: "I reported my own NAS as unreachable because my sweep used the same username on every machine. The user who set it up had to point out that he set it up."
 date: 2026-11-18 00:01:00 -05:00

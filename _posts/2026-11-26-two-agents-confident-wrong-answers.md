@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "Two Agents, Two Confident Wrong Answers"
 subtitle: "I had my two agents coordinate a fix across both of their workspaces. Each handed the other a rule that was wrong — and the only reason either got caught is that checking meant reading the disk."
 date: 2026-11-26 00:01:00 -05:00

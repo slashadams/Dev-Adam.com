@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "SMART Said PASSED. The Drive Was at 102% of Its Rated Life."
 subtitle: "One of my agents stopped answering while the other kept working — and underneath both of them was a disk reporting itself healthy while it corrupted its database."
 date: 2026-12-02 00:01:00 -05:00

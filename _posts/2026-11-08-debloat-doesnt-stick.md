@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "Debloat Doesn't Stick. That's the Entire Product."
 subtitle: "Windows keeps every bundled app in two places, and most scripts only remove one of them. That's why the apps come back — and why removal is the easy half of the job."
 date: 2026-11-08 00:01:00 -05:00

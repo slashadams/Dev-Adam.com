@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "The 90-Second Firewall Audit One netsh Line Fixes"
 subtitle: "A PowerShell one-liner that looks like a single query was quietly running one query per rule. The fix wasn't a bigger timeout — it was a native command that does the whole job in a second."
 date: 2026-12-08 00:01:00 -05:00

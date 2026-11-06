@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "I Port-Scanned the Intruder and It Got Faster"
 subtitle: "An unknown device on my network, a model name nobody owns, and a latency reading that was lying to me the entire time."
 date: 2026-11-30 00:01:00 -05:00

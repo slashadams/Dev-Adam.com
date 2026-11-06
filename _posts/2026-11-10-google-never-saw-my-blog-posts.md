@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "Google Had Never Seen a Single One of My Blog Posts"
 subtitle: "Every check I knew to run came back green. robots.txt allowed everything, the sitemap returned 200, a search for my domain returned twenty of my pages. Google had the homepage and nothing else."
 date: 2026-11-10 00:01:00 -05:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "My Network Checker Never Asks for Your Router Password"
 subtitle: "Every tool in this space wants admin credentials or a vendor cloud account. The useful half of the job needs neither — and building it that way is the reason it works on any router."
 date: 2026-11-06 00:01:00 -05:00

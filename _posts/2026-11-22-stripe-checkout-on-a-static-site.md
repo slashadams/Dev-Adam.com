@@ -1,5 +1,6 @@
 ---
 layout: post
+devto: true
 title: "Stripe Checkout Needs a Server. My Site Doesn't Have One."
 subtitle: "Stripe's own setup assistant told me to add an endpoint to my server framework. I have neither. Here's what actually works when your site is static files and a CDN."
 date: 2026-11-22 00:01:00 -05:00
