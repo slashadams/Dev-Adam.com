@@ -4,6 +4,13 @@ title: "Self-Hosting Matrix: The Logout You Didn't Ask For, and Why Your Read Re
 subtitle: "A fresh login silently invalidates the token your other client is using. And typing indicators aren't broken — they're ephemeral by design, which is why they never come back."
 date: 2026-11-20 00:01:00 -05:00
 tags: [matrix, conduit, self-hosting, homelab, proxmox, chat]
+devto: true
+bsky: |
+  Self-hosting Matrix: logging in on a new client silently invalidates the token your other client is using.
+
+  And your typing indicators and read receipts aren't broken — they're ephemeral by design, which is why they never come back.
+
+  Link in bio.
 ---
 
 I self-host my Matrix homeserver. It's Conduit on a Proxmox container, reachable only over a VPN, no federation. That's the easy part — Conduit installs cleanly and mostly gets out of the way.

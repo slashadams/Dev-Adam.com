@@ -4,6 +4,13 @@ title: "Three Tokens in the Portal, and Only One of Them Is the Right One"
 subtitle: "A vendor API where the obvious credential expires in an hour and the correct one is buried at the bottom of the list. Plus why you should fetch the OpenAPI spec before writing a single line against it."
 date: 2026-11-24 00:01:00 -05:00
 tags: [api, automation, security, homelab, tooling, lessons-learned]
+devto: true
+bsky: |
+  A vendor portal handed me three credentials. The obvious one expires in an hour; the correct one is buried at the bottom of the list.
+
+  Cost me an afternoon. Also: fetch the OpenAPI spec before writing a single line against an API.
+
+  Link in bio.
 ---
 
 I was wiring up an external attack-surface monitoring service so it could run on a schedule. It has a public API, the docs are reasonable, and getting a credential should have been the easy part.

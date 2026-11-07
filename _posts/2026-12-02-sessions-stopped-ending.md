@@ -4,6 +4,13 @@ title: "My Sessions Stopped Ending, and Nothing Told Me for 43 Days"
 subtitle: "Hermes retired timer-based conversation rotation. My config still declared it, the setting still parsed, and every new turn re-billed the entire conversation it was supposed to have ended."
 date: 2026-12-02 00:01:00 -05:00
 tags: [ai-agents, hermes, self-hosting, debugging, cost, context]
+devto: true
+bsky: |
+  My agent config had a setting to reset our conversation every day at 4 AM. The feature was retired; the setting still parsed.
+
+  For 43 days every turn re-billed the whole conversation it was supposed to have ended. Nothing told me.
+
+  Link in bio.
 ---
 
 I have a setting in my agent config that should reset our conversation every day at 4 AM, or after 12 hours of quiet:

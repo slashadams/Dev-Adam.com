@@ -5,6 +5,12 @@ subtitle: "Factory Reset Protection is an anti-theft feature. It cannot tell the
 date: 2026-12-16 00:01:00 -05:00
 tags: [android, lineageos, self-hosting, security, side-projects]
 devto: true
+bsky: |
+  Factory Reset Protection is an anti-theft feature. It also can't tell the difference between a thief and the person who owns the device.
+
+  The tablet I pulled out of a drawer could have locked me out of itself. Here's what to do at that screen.
+
+  Link in bio.
 ---
 
 An old Galaxy Tab S7 had been sitting in a drawer for about a year. I pulled it out thinking about a wall dashboard, then realized the deeper answer: I wanted a device I could actually do whatever I wanted with. For a tablet that Samsung stopped patching in 2024, the useful path is LineageOS.

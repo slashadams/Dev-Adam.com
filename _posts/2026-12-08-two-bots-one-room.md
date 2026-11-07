@@ -4,6 +4,13 @@ title: "Two Bots in One Room, and Neither Could Hear the Other"
 subtitle: "Both agents were in the chat, both had posted there, and nothing errored. One of them had never received a single message from the other — and a ✅ reaction nearly convinced me it was working."
 date: 2026-12-08 00:01:00 -05:00
 tags: [ai-agents, matrix, self-hosting, hermes, monitoring]
+devto: true
+bsky: |
+  Two agents were in the same chat room. Both had posted there. Nothing errored.
+
+  One had never received a single message from the other — and a checkmark reaction nearly convinced me it was working.
+
+  Link in bio.
 ---
 
 One of my agents posts a steady stream of alerts into a room on my self-hosted Matrix homeserver. Another agent sits in that same room. When I finally looked closely, the second one had never reacted to a single alert. Not once.

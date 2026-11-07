@@ -5,6 +5,12 @@ subtitle: "The interesting part of the WiCi video wasn't the $2,600 box. It was 
 date: 2026-11-10 00:01:00 -05:00
 tags: [local-llm, homelab, proxmox, moe, self-hosting]
 devto: true
+bsky: |
+  A video showed a $2,600 box running a 750-billion-parameter model on 32 GB of VRAM. My first reaction: that shouldn't work.
+
+  It does work. So I checked whether I could run it — and found the one number on my motherboard that rules it out entirely.
+
+  Link in bio.
 ---
 
 NetworkChuck put out [a video about it](https://youtu.be/cFdoXn6yvE4) — a box called the WiCi One that runs a 750-billion-parameter model on 32 GB of VRAM. Normally that model wants over 500 GB of memory. My first reaction was the same as everyone's: that shouldn't work.

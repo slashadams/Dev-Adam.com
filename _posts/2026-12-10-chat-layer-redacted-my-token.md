@@ -4,6 +4,13 @@ title: "The Chat Layer Redacted My Token Before It Ever Reached Me"
 subtitle: "I pasted exactly what the agent showed me. What landed in the file was the placeholder text — because something between us rewrote the message, and neither of us could see it happen."
 date: 2026-12-10 00:01:00 -05:00
 tags: [ai-agents, secrets-management, self-hosting, hermes, developer-tools]
+devto: true
+bsky: |
+  I pasted exactly what the agent showed me. What landed in the file was the placeholder text.
+
+  Something between us rewrote the message in transit and neither of us could see it happen. The fix: send a script, not a command.
+
+  Link in bio.
 ---
 
 I needed to hand an API token to an agent that runs on a box I wasn't sitting at. I had no SSH session from where I was — my only channel was the chat. So the sensible move was the one everybody does: have the agent write me a one-line command, paste it into the shell, done.
