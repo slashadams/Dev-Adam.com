@@ -71,9 +71,11 @@ So the app treats a session as something it has to hand back. It keeps the live 
 
 ## Where it stands
 
-The app does what I wanted and a fair bit more now, and it's on my phone doing it. The source is on GitHub if you want to poke at it: [github.com/slashadams/pihole-Viewer](https://github.com/slashadams/pihole-Viewer). It isn't on the Play Store yet.
+The app does what I wanted and a fair bit more now, and it's on my phone doing it. The source is on GitHub if you want to poke at it: [github.com/slashadams/pihole-Viewer](https://github.com/slashadams/pihole-Viewer).
 
-There are two real blockers in front of that, and both are the kind you want to deal with before rather than after: the application ID is still the default `com.example.…` placeholder, which Play rejects outright and which you can't change once you've published, and the target SDK is a version behind what new apps have to ship with. Neither is difficult. They're just easy to leave until they're permanent.
+It isn't on the Play Store yet. I've registered as a developer and I'm waiting on Google to approve the account — that approval is the last thing standing between me and submitting at all. Which has been a useful delay, because there are two things I'd rather fix before submitting than after.
+
+The first is that the application ID is still the default `com.example.…` placeholder. Play rejects that outright, and **you cannot change it once you've published** — the ID is permanent from your first submission, so it has to be right before you send it, not after. The second is that the target SDK is a version behind what new apps are required to ship with. Neither is difficult. They're just very easy to leave until they're permanent.
 
 ## What I actually learned
 
