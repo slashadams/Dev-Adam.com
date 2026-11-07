@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "I Only Wanted a Pause Button"
-subtitle: "My Pi-hole app started as one small convenience and stayed exactly that for ages — I was happy with it. Then I got curious about what vibe coding could actually do, wired an agentic IDE into Android Studio, and found out."
+subtitle: "My Pi-hole app started as one small convenience and stayed exactly that for a while — I was happy with it. Then I got curious about what vibe coding could actually do, wired an agentic IDE into Android Studio, and found out."
 date: 2026-11-08 00:01:00 -05:00
 tags: [android, pi-hole, self-hosting, ai-agents, developer-tools, side-projects]
 devto: true
@@ -53,21 +53,21 @@ And since the certificate is self-signed, there's no way to know the fingerprint
 
 If the Pi-hole ever regenerates its certificate, the pin stops matching and you have to re-pin. That's correct behaviour, and the first time it happens it will look exactly like an outage.
 
-### The encryption detail that's easy to get backwards
+### The password it keeps
 
-Your Pi-hole password shouldn't sit in plain text in the app's preferences. So it's encrypted with AES-256-GCM using a key held in the Android Keystore — generated on the device, never exported.
+Pi-hole doesn't hand out API keys. To use the API you send the admin password, and the app signs in with the same login you'd type into the web UI — not a separate credential generated for it. Which means the app is holding your real admin password on the device, and that changes what "storing it" has to mean.
 
-The part I wouldn't have thought of: **that key can't be backed up.** It's hardware-backed; there's no way to get it off the device. So if the app's preferences end up in a cloud backup or a phone-to-phone transfer, they restore as ciphertext that nothing can open — the key that could decrypt them didn't come along for the ride.
+So it isn't stored as text. It's encrypted with AES-256-GCM using a 256-bit key that lives in the Android Keystore — generated on the device, never exported. The stored value carries a version tag, and if the app ever finds a value saved before the encryption existed, it transparently re-saves it encrypted the next time it's written.
 
-The fix is to explicitly exclude those preferences from both cloud backup and device transfer. Which means writing a small amount of configuration whose entire purpose is to *not* move data, and whose absence produces a bug that only shows up after someone upgrades their phone.
+Then the part I wouldn't have thought of: **that key can't be backed up.** It's hardware-backed; there's no way to get it off the device. So if the app's preferences ended up in a cloud backup or a phone-to-phone transfer, they'd restore as ciphertext that nothing can open — the key that could decrypt them didn't come along for the ride.
 
-### One Pi-hole, one app password
+So the preferences are explicitly excluded from both cloud backup and device transfer. That's a small amount of configuration whose entire purpose is to *not* move data, and whose absence produces a bug that only shows up after someone changes phones.
 
-Pi-hole v6 authenticates with a **session**: post the password to `/api/auth`, get a session id back, send that id on every later call. There's no static API key.
+### Sessions, and why it logs out when it's done
 
-It also holds **one app password per instance at a time**. Generate a new one and the old one stops working. So if two things are talking to the same Pi-hole and only one of them has the current password, the other one just silently stops authenticating.
+Pi-hole v6 doesn't use static keys either. You post the password to `/api/auth` once and get a session id back; every call after that carries that id in a header. And sessions on the Pi-hole side are a limited resource — they don't quietly clean themselves up.
 
-The app's side of that is more careful than it strictly needs to be: it caches the session in memory, re-authenticates automatically when a session expires, and logs out explicitly when it's done — because on v6 sessions are a limited resource, not something that gets cleaned up behind you.
+So the app treats a session as something it has to hand back. It keeps the live one in memory, re-authenticates automatically the moment the Pi-hole answers a request with a 401, and logs out explicitly when it's finished instead of leaving the session to expire on its own.
 
 ## Where it stands
 
