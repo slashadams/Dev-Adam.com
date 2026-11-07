@@ -71,7 +71,7 @@ So the app treats a session as something it has to hand back. It keeps the live 
 
 ## Where it stands
 
-The app does what I wanted and a fair bit more now, and it's on my phone doing it. It isn't on the Play Store yet.
+The app does what I wanted and a fair bit more now, and it's on my phone doing it. The source is on GitHub if you want to poke at it: [github.com/slashadams/pihole-Viewer](https://github.com/slashadams/pihole-Viewer). It isn't on the Play Store yet.
 
 There are two real blockers in front of that, and both are the kind you want to deal with before rather than after: the application ID is still the default `com.example.…` placeholder, which Play rejects outright and which you can't change once you've published, and the target SDK is a version behind what new apps have to ship with. Neither is difficult. They're just easy to leave until they're permanent.
 
