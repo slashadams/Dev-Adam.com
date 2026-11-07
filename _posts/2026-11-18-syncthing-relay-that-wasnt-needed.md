@@ -2,7 +2,7 @@
 layout: post
 title: "Three File-Sync Problems, and None of Them Were the Tool's Fault"
 subtitle: "An unnecessary relay, a debounce race that fabricates conflicts out of normal write bursts, and a vault that had grown two incomplete indexes for the same month."
-date: 2026-11-16 00:01:00 -05:00
+date: 2026-11-18 00:01:00 -05:00
 tags: [syncthing, homelab, file-sync, self-hosting, networking, debugging]
 slug: three-file-sync-problems
 ---

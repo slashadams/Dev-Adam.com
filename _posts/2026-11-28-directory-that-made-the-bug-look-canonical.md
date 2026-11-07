@@ -2,7 +2,7 @@
 layout: post
 title: "The Directory That Made the Bug Look Canonical"
 subtitle: "A wrong-path bug recurred five times because a stale directory kept presenting itself as the right one. Deleting it fixed the bug — and broke the check that was supposed to catch it."
-date: 2026-11-26 00:01:00 -05:00
+date: 2026-11-28 00:01:00 -05:00
 tags: [debugging, root-cause, self-hosting, knowledge-base, agents, obsidian]
 ---
 

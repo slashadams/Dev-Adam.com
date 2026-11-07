@@ -2,7 +2,7 @@
 layout: post
 title: "The Chat Layer Redacted My Token Before It Ever Reached Me"
 subtitle: "I pasted exactly what the agent showed me. What landed in the file was the placeholder text — because something between us rewrote the message, and neither of us could see it happen."
-date: 2026-12-08 00:01:00 -05:00
+date: 2026-12-10 00:01:00 -05:00
 tags: [ai-agents, secrets-management, self-hosting, hermes, developer-tools]
 ---
 

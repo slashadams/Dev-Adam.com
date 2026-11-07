@@ -2,7 +2,7 @@
 layout: post
 title: "The Google Account That Can Lock You Out of Your Own Tablet"
 subtitle: "Factory Reset Protection is an anti-theft feature. It cannot tell the difference between a thief and the person who actually owns the device."
-date: 2026-12-14 00:01:00 -05:00
+date: 2026-12-16 00:01:00 -05:00
 tags: [android, lineageos, self-hosting, security, side-projects]
 devto: true
 ---

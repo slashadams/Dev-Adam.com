@@ -2,7 +2,7 @@
 layout: post
 title: "I Wanted to Run a 750B Model at Home. My Hardware Said No"
 subtitle: "The interesting part of the WiCi video wasn't the $2,600 box. It was the free software underneath — and the one number on my motherboard that rules it out."
-date: 2026-11-08 00:01:00 -05:00
+date: 2026-11-10 00:01:00 -05:00
 tags: [local-llm, homelab, proxmox, moe, self-hosting]
 devto: true
 ---

@@ -3,7 +3,7 @@ layout: post
 devto: true
 title: "SMART Said PASSED. The Drive Was at 102% of Its Rated Life."
 subtitle: "One of my agents stopped answering while the other kept working — and underneath both of them was a disk reporting itself healthy while it corrupted its database."
-date: 2026-12-04 00:01:00 -05:00
+date: 2026-12-06 00:01:00 -05:00
 tags: [homelab, proxmox, storage, matrix, self-hosting, monitoring]
 bsky: |
   SMART said PASSED. The drive was at 102% of its rated life.
