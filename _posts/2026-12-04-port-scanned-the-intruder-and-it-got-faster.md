@@ -6,7 +6,7 @@ subtitle: "An unknown device on my network, a model name nobody owns, and a late
 date: 2026-12-04 00:01:00 -05:00
 tags: [networking, homelab, unifi, security, troubleshooting]
 bsky: |
-  An unknown device on my network. A Galaxy Z Fold 7 — nobody in this house owns one. Randomized MAC, no vendor to look up. 300-500ms latency from something supposedly sitting two rooms away.
+  An unknown device on my network. A Galaxy Z Fold 7 — nobody here owns one. Randomized MAC, no vendor to look up. 300-500ms latency from something supposedly sitting two rooms away.
   
   I port-scanned it, and it got faster. That told me more than the scan did.
   

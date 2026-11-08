@@ -8,7 +8,7 @@ tags: [networking, ipv6, dns, pi-hole, self-hosting, homelab]
 bsky: |
   My router popped up a friendly box: "We detected IPv6 from your ISP. Enable it?"
 
-  On a network where the ad-blocking rules are all written in IPv4, turning it on can hand your devices a DNS server that resolves straight past Pi-hole. Nobody gets an alert. It just stops filtering.
+  On a network whose ad-blocking rules are all in IPv4, turning it on hands your devices a DNS server that resolves straight past Pi-hole. No alert — it just stops filtering.
 
   Link in bio.
 ---
