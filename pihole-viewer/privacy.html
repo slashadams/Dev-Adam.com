@@ -1,0 +1,157 @@
+---
+layout: default
+title: Privacy Policy — Pi-hole Viewer
+description: What the Pi-hole Viewer Android app stores, where it goes, and what it never does.
+---
+
+<!--
+  ============================================================
+  DRAFT — plain-language policy for the Pi-hole Viewer Android app.
+  Written from the actual source on 2026-11-07, not from a template.
+  Every claim below is checkable in the code:
+    - the only permission requested is INTERNET (AndroidManifest.xml)
+    - there is no analytics / crash / ads SDK in the dependency list
+    - the password is AES-256-GCM via the Android Keystore (CryptoHelper.kt)
+    - SharedPreferences are excluded from cloud backup AND device transfer
+      (backup_rules.xml, data_extraction_rules.xml)
+    - the app signs in with the Pi-hole's own web-admin password
+      (PiHoleApiClient.kt login())
+  If any of that changes, this page changes with it. An inaccurate
+  privacy policy is worse than none.
+  ============================================================
+-->
+
+<section style="padding:4rem 0">
+  <div class="container" style="max-width:760px">
+
+    <header style="margin-bottom:2.5rem">
+      <h1 style="font-size:2.25rem;margin:0 0 0.5rem">Privacy Policy — Pi-hole Viewer</h1>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin:0">Last updated: 7 November 2026</p>
+    </header>
+
+    <div style="color:var(--text-secondary);line-height:1.75;font-size:0.98rem">
+
+      <p>
+        Short version: <strong style="color:var(--text-primary)">everything the app knows lives on
+        your phone, and the only thing it ever talks to is the Pi-hole you point it at.</strong>
+        I don't collect anything, because I never receive anything. The longer version is below,
+        because you deserve to know exactly what that means.
+      </p>
+
+      <p style="color:var(--text-muted);font-size:0.9rem">
+        This policy covers the <strong>Pi-hole Viewer</strong> Android app. The
+        <a href="/privacy/" style="color:var(--accent-light)">Field Service Sidekick privacy
+        policy</a> covers the agent service, which is a different product and handles different
+        things.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">1. What the app stores</h2>
+      <p>All of it sits on your device, and there are three things:</p>
+      <ul style="padding-left:1.35rem;list-style:disc">
+        <li>the address of each Pi-hole you add, and the name you give it;</li>
+        <li><strong style="color:var(--text-primary)">the password you use to sign in to that
+          Pi-hole's web admin page</strong> — the same password you'd type into a browser. Pi-hole
+          doesn't issue separate API keys, so this is the real one;</li>
+        <li>a certificate fingerprint, if you've chosen to trust a self-signed certificate for that
+          Pi-hole.</li>
+      </ul>
+      <p>
+        The password is encrypted with <strong style="color:var(--text-primary)">AES-256-GCM</strong>
+        using a 256-bit key held in your phone's Android Keystore. That key is generated on your
+        device and cannot be exported from it — not by me, not by anything else.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">2. Where that information goes</h2>
+      <p>
+        <strong style="color:var(--text-primary)">From your phone straight to the Pi-hole address
+        you configured.</strong> Nothing passes through me. There's no account to create, no sign-in
+        with me, and no server of mine anywhere in the path.
+      </p>
+      <p>
+        The app is an administration client. It signs in to your Pi-hole and reads and writes over
+        its API — so when you toggle blocking or add a blocklist entry, that goes to your Pi-hole
+        and nowhere else.
+      </p>
+      <p>
+        If you reach your Pi-hole at a name that resolves outside your home network — a hostname, a
+        VPN address, a public URL — that's still your address and your server. It's the one you
+        typed in.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">3. What the app doesn't do</h2>
+      <ul style="padding-left:1.35rem;list-style:disc">
+        <li>It doesn't send anything to me, or to any third party.</li>
+        <li>It contains <strong style="color:var(--text-primary)">no analytics, no crash-reporting,
+          no advertising, and no tracking SDK</strong> of any kind.</li>
+        <li>It doesn't ask for your name, your email, or any account of yours.</li>
+        <li>It doesn't collect device identifiers, location, contacts, or files.</li>
+        <li>It doesn't run in the background, and it doesn't contact anything you haven't
+          configured yourself.</li>
+      </ul>
+      <p>
+        One honest exception, and it isn't the app doing it: Google Play can send a developer crash
+        and diagnostics reports for apps you install, if you've opted into sharing that with
+        developers in your Android settings. That's a Play setting and Google's data, not something
+        this app collects or sends.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">4. Permissions</h2>
+      <p>
+        Internet access, and that's the only permission the app requests. It needs it to reach your
+        Pi-hole. There is no location, camera, contacts, storage, or notification access.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">5. Certificates, and plain HTTP</h2>
+      <p>
+        A Pi-hole serves its admin page over HTTPS with a certificate it generates itself, which no
+        phone will trust automatically. The app doesn't quietly accept that. It shows you the
+        certificate's fingerprint and asks whether to trust that exact certificate before it will
+        connect. If your Pi-hole later regenerates its certificate, the fingerprint stops matching
+        and you'll be asked to confirm the new one.
+      </p>
+      <p>
+        <strong style="color:var(--text-primary)">If you enter an <code>http://</code> address for a
+        Pi-hole, the traffic between your phone and that Pi-hole is unencrypted.</strong> Use HTTPS
+        unless you have a specific reason not to.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">6. Your phone's backup</h2>
+      <p>
+        Android can back up app data to your Google account, and can carry it across when you move
+        to a new phone. <strong style="color:var(--text-primary)">The app excludes what it stores
+        from both.</strong> That's deliberate rather than incidental: the encryption key protecting
+        your password can't be backed up, so a restored copy would be unreadable anyway. Your
+        Pi-hole addresses and passwords don't leave your device that way either.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">7. Deleting what the app holds</h2>
+      <p>
+        Delete a Pi-hole inside the app, or uninstall the app. Either removes everything it stored.
+        You don't need to ask me for an export or ask me to delete anything — I never had a copy.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">8. Children</h2>
+      <p>
+        The app is an administration tool for a self-hosted DNS server. It isn't directed at
+        children and it isn't designed to be used by them.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">9. Changes to this policy</h2>
+      <p>
+        If anything here changes, the date at the top changes with it. Since the app collects
+        nothing, there's very little that can change.
+      </p>
+
+      <h2 style="color:var(--accent-light);font-size:1.15rem;margin:2rem 0 0.75rem">10. Contact</h2>
+      <p>
+        Any question about this:
+        <a href="mailto:adam@dev-adam.com" style="color:var(--accent-light)">adam@dev-adam.com</a>.
+      </p>
+
+      <p style="margin-top:2.5rem">
+        <a href="/terms/" style="color:var(--accent-light)">Terms of Service →</a>
+      </p>
+
+    </div>
+  </div>
+</section>
