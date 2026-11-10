@@ -2,6 +2,7 @@
 layout: post
 title: "Your Agent Routes on 60 Characters Per Skill. The Rest Doesn't Exist."
 subtitle: "191 skills across three agents, one index line each, and a hard truncation point I'd never seen written down anywhere. The skills were fine — the titles were the problem."
+description: "191 skills across three agents, one index line each, and a truncation point I had never seen written down. The skills were fine; the titles were not."
 date: 2026-11-02 00:01:00 -05:00
 tags: [ai-agents, hermes, openclaw, skill-routing, developer-tools]
 ---

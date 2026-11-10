@@ -2,6 +2,7 @@
 layout: post
 title: "I Only Wanted a Pause Button"
 subtitle: "My Pi-hole app started as one small convenience and stayed exactly that for a while — I was happy with it. Then I got curious about what vibe coding could actually do, wired an agentic IDE into Android Studio, and found out."
+description: "My Pi-hole app stayed one small convenience for a while, until I wired an agentic IDE into Android Studio to see what vibe coding could actually do."
 date: 2026-11-08 00:01:00 -05:00
 tags: [android, pi-hole, self-hosting, ai-agents, developer-tools, side-projects]
 devto: true

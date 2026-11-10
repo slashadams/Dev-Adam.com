@@ -2,6 +2,7 @@
 layout: post
 title: "Cameron Is Taking Shape — Building an AI Assistant for CAMs"
 subtitle: "Statute library, document templates, property vaults, and deadline tracking — here's what I've built so far."
+description: "Statute library, document templates, property vaults, deadline tracking - what my AI assistant for community association managers looks like so far."
 tags: [AI agents, property management, CAM, Cameron, side projects, development]
 ---
 

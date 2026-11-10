@@ -3,6 +3,7 @@ layout: post
 devto: true
 title: "Debloating an Android TV Device Over ADB, and the Four Things That Waste an Evening"
 subtitle: "adb connect with an IP and port will never work on a TV. Debian's adb package is from 2019 and has no pairing command at all. And the error that looks like a bad pairing code is actually a stale server from a binary you already deleted."
+description: "adb connect with an IP and port never works on an Android TV, Debian's adb predates the pairing command, and the pairing error usually means a stale server."
 date: 2026-10-31 00:01:00 -04:00
 tags: [android-tv, adb, debloat, homelab, google-tv, privacy, howto]
 bsky: |

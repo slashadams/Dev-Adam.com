@@ -2,6 +2,7 @@
 layout: post
 title: "Putting My Xfinity Set-Top Boxes on Their Own VLAN"
 subtitle: "Xfinity's gateway is in bridge mode and their web UI is gone, so every bit of this happens on your own router. Including the DNS trap that made the first box report no internet."
+description: "Xfinity's gateway is in bridge mode and the web UI is gone, so all of this happens on your own router - including the DNS trap that broke the first box."
 date: 2026-10-25 12:00:00 -04:00
 tags: [homelab, networking, vlan, xfinity, pihole, self-hosting, network-segmentation]
 ---

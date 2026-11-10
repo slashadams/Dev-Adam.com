@@ -2,6 +2,7 @@
 layout: post
 title: "How I Hardened My AI Agents Against Prompt Injection"
 subtitle: "Trust boundaries, untrusted external content, and the defense pattern every AI agent should ship with."
+description: "Trust boundaries, untrusted external content, and the defense pattern I now ship in every AI agent that reads anything from outside."
 tags: [AI, security, prompt injection, AI agents, OpenClaw]
 ---
 

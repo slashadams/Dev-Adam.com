@@ -2,6 +2,7 @@
 layout: post
 title: "Where Should You Run OpenClaw? (Please Don't Say Your Laptop)"
 subtitle: "VPS vs. repurposed hardware vs. Proxmox LXC vs. the daily driver — a practical breakdown of the four options."
+description: "VPS, repurposed hardware, a Proxmox LXC, or the laptop you already use: a practical breakdown of where to actually run OpenClaw."
 tags: [OpenClaw, self-hosting, infrastructure, Proxmox, VPS]
 ---
 

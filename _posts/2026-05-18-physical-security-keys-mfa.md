@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Why Physical Security Keys Are the Future of MFA"   
+description: "SMS codes can be phished, intercepted, or SIM-swapped. Hardware security keys cannot - here is how U2F and WebAuthn work and what they change."
 date: 2026-05-17
 tags: [security, mfa, hardware, yubikey] 
 ---  

@@ -2,6 +2,7 @@
 layout: post
 title: "I Built an AI Dungeon Master That Runs D&D Over Telegram"
 subtitle: "Full D&D 5e SRD, persistent campaigns, dice rolling, and a character sheet web app — all driven by an LLM agent."
+description: "An AI Dungeon Master that runs D&D 5e over Telegram: the full SRD, persistent campaigns, dice rolling, and a character sheet web app."
 ---
 
 I play D&D with friends, but we're adults now. Jobs, kids, time zones. Getting four people in the same room for four hours is a scheduling miracle.

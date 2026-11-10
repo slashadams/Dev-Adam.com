@@ -2,6 +2,7 @@
 layout: post
 title: "Why I Switched from OpenClaw to Hermes"
 subtitle: "Better security, smarter memory, and a tool ecosystem that actually grows with you"
+description: "Why I moved my agent off OpenClaw and onto Hermes: better security, smarter memory, and a tool ecosystem that actually grows with you."
 date: 2026-05-20 22:09:00 -04:00
 tags: [hermes, openclaw, agents, migration, security]
 ---

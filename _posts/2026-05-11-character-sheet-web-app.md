@@ -2,6 +2,7 @@
 layout: post
 title: "Building a Zero-Dependency Character Sheet Web App"
 subtitle: "A single HTML file that lets D&D players build characters and export them to their AI Dungeon Master."
+description: "A single HTML file that lets D&D players build a character and export it straight into the AI Dungeon Master. No dependencies, no build step."
 ---
 
 When I built the AI Dungeon Master, I hit a question: how do players get their character sheets into the game?

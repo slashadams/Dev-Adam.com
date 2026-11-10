@@ -2,6 +2,7 @@
 layout: post
 title: "Building an AI Assistant for Community Association Managers"
 subtitle: "The thought process, the architecture, and why I'm building this before I know if anyone will buy it."
+description: "The architecture behind an AI assistant for Florida community association managers, and why I built it before knowing if anyone would buy."
 tags: [AI agents, property management, community association, product development]
 ---
 

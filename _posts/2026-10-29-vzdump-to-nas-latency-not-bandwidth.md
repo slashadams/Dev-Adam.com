@@ -2,6 +2,7 @@
 layout: post
 title: "Backing Up a Container to a NAS Ran at 10 MB/min. Local Disk Ran at 183 MiB/s."
 subtitle: "Same data, same compression, same machine. The difference was the storage backend — and the reason is a lesson about every backup job you've ever pointed at a network share."
+description: "A container backup to my NAS ran at 10 MB/min. The same data to local disk ran at 183 MiB/s. A lesson for every backup pointed at a network share."
 date: 2026-10-29 00:01:00 -04:00
 tags: [proxmox, homelab, zfs, nfs, backups, storage, performance]
 ---

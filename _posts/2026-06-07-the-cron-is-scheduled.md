@@ -2,6 +2,7 @@
 layout: post
 title: "The Cron Is Scheduled. The Cron Is Not Working."
 subtitle: "Three monitors I thought were running — and the routine I now use to actually check."
+description: "Three monitors I was sure were running, and the routine I now use to actually verify a cron job instead of trusting that it is scheduled."
 date: 2026-06-07 22:30:00 -04:00
 tags: [agents, automation, devops, homelab, hermes, ai-agents, lessons-learned]
 ---

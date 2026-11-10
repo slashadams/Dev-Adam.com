@@ -2,6 +2,7 @@
 layout: post
 title: "I Built My Personal AI Agent Into a Product Other Techs Can Buy"
 subtitle: "The Field Service Sidekick — a Telegram bot that remembers every job you've done"
+description: "The Field Service Sidekick: a Telegram bot that remembers every job a field tech has done, built from the agent I use on my own calls."
 date: 2026-10-03 10:00:00 -04:00
 tags: [ai-agents, side-projects, hermes, self-hosting, field-service, product-launch]
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: "Back to Self-Hosted Bitwarden: Why I Spun Vaultwarden Back Up"
 subtitle: "After a year on Chrome's built-in password manager, I remembered why I self-host in the first place. Here's the rebuild — and the parts that broke along the way."
+description: "After a year on Chrome's built-in password manager I spun Vaultwarden back up. The rebuild, and the parts that broke along the way."
 date: 2026-06-04 18:46:00 -04:00
 tags: [self-hosting, security, vaultwarden, bitwarden, proxmox, side-projects]
 ---

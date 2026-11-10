@@ -2,6 +2,7 @@
 layout: post
 title: "Syncing Two Pi-hole v6 Instances When Teleporter Doesn't Work"
 subtitle: "Teleporter is broken in v6 and wouldn't have carried your blocklists anyway. Here's the API-based method that does — and the one config section that will silently break your sync forever if you copy it."
+description: "Teleporter is broken in Pi-hole v6 and would not have carried your blocklists anyway. Here is the API-based sync that works, and one config section to avoid."
 date: 2026-10-27 00:01:00 -04:00
 tags: [pihole, self-hosting, homelab, dns, networking, adblocking]
 ---

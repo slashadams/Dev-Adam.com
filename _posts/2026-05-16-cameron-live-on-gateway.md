@@ -2,6 +2,7 @@
 layout: post
 title: "Cameron's Alive — Running on My OpenClaw Gateway for Testing"
 subtitle: "The Florida CAM assistant I've been building is now running as a live agent. Here's what that looks like."
+description: "The Florida CAM assistant I have been building is now running as a live agent on my gateway. Here is what testing it actually looks like."
 tags: [AI agents, property management, CAM, OpenClaw, side projects, development]
 ---
 

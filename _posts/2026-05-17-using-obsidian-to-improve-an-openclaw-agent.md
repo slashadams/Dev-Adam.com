@@ -2,6 +2,7 @@
 layout: post
 title: "Using Obsidian to Improve an OpenClaw Agent"
 subtitle: "Boosting memory, recall, and workflow with a markdown vault"
+description: "How a plain markdown vault in Obsidian gave my OpenClaw agent better memory, recall, and workflow - with no vector database involved."
 date: 2026-05-17 08:00:00 -04:00
 tags: [openclaw, obsidian, agent, productivity]
 ---

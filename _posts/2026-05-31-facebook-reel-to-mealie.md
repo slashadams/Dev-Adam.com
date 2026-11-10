@@ -2,6 +2,7 @@
 layout: post
 title: "I Built a Pipeline That Extracts Recipes from Facebook Reels"
 subtitle: "From a custom Android app to sharing a link — the evolution of a recipe hoarder's side project"
+description: "From a custom Android app to sharing a link: how I built a pipeline that pulls recipes out of Facebook Reels and into Mealie."
 date: 2026-05-31 16:50:00 -04:00
 tags: [self-hosting, mealie, recipes, promedia, llm, whisper, side-projects]
 ---

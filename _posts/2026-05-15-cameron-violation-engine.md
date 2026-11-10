@@ -2,6 +2,7 @@
 layout: post
 title: "Building a Violation Tracking Engine for My CAM Assistant Project"
 subtitle: "Status workflows, automated follow-ups, repeat-offender detection, and conversational case management — the latest piece I built."
+description: "Status workflows, automated follow-ups, repeat-offender detection, and conversational case management: the violation engine for my CAM assistant."
 tags: [AI agents, property management, CAM, side projects, development]
 ---
 
