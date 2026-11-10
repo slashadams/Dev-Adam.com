@@ -23,4 +23,40 @@ layout: none
     <priority>0.8</priority>
   </url>
   {% endfor %}
+  {% comment %}
+    Standalone pages are hand-listed. This file overrides the jekyll-sitemap
+    plugin, so any new top-level page must be added here or Google is never
+    told it exists. (404.html and the /thanks/ confirmation page are
+    deliberately omitted - no search value.)
+  {% endcomment %}
+  <url>
+    <loc>https://www.dev-adam.com/field-service-sidekick/register/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.dev-adam.com/resources/florida-cam-compliance-cheatsheet.html</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dev-adam.com/terms/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.dev-adam.com/privacy/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.dev-adam.com/pihole-viewer/privacy/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
