@@ -25,7 +25,7 @@ The core rules are simple, and most security guides get them right:
 - **Turn on two-factor authentication wherever it's available.** SMS-based 2FA is better than nothing; an authenticator app is better; a physical security key is best.
 - **Rotate compromised credentials immediately**, not "next time I remember to."
 
-I knew all this. I'd been writing about it for years — including a long post on [physical security keys]({{ site.baseurl }}/blog/why-physical-security-keys-are-the-future-of-mfa) that I still believe. But knowing and doing are different things, and for a long time I was doing the bare minimum.
+I knew all this. I'd been writing about it for years — including a long post on [physical security keys]({{ site.baseurl }}/blog/physical-security-keys-mfa/) that I still believe. But knowing and doing are different things, and for a long time I was doing the bare minimum.
 
 ## Why I Stopped Using Vaultwarden the First Time (and what I switched to)
 
