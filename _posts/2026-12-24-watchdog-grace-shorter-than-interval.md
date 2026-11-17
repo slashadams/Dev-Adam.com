@@ -29,9 +29,9 @@ It anchors that walk on the **last ping**. So a fresh ping moves the anchor forw
 
 ## Attempt #1: a grace shorter than the cadence
 
-My first instinct was to keep grace small. Five minutes on a job that runs every fifteen. The reasoning felt obvious at the time — *"a tight window catches a dead job faster."*
+The first setting on that check was five minutes, on a job that runs every fifteen. Grace reads like *"how long to wait before you worry"* — so a small one looks like a stricter monitor.
 
-That reasoning is wrong, and the arithmetic is the proof. The job runs every fifteen minutes. A missed cycle at 00:30 cannot be healed until the next run at 00:45. An alert fires at `00:30 + 5` — **00:35**. That is ten minutes before the run that would have cleared it had a chance to start.
+It isn't stricter, and the arithmetic is the proof. The job runs every fifteen minutes. A missed cycle at 00:30 cannot be healed until the next run at 00:45. An alert fires at `00:30 + 5` — **00:35**. That is ten minutes before the run that would have cleared it had a chance to start.
 
 So the "sensitive" setting wasn't sensitivity. It was a monitor that pages on any single dropped cycle, no matter why, and reports a healthy system as broken.
 
