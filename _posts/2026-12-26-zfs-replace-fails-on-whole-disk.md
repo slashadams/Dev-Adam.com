@@ -87,7 +87,7 @@ The replace cared about one character. Giving it `/dev/sda1` skips the partition
 
 Once the command ran, the copy took **45.6 GB in 5:36, 0 errors**. Five and a half minutes. The pool stayed online the whole way and came back to `ONLINE` with all four members healthy.
 
-So the resilver — the part I expected to be slow — was the fastest part of the night. The command that ate the time was the *replace*, and it ate it purely because the error string pointed at a lock that didn't exist. `fuser`, `lsof`, `udevadm settle`, a reboot-to-be-safe, and `-f` were all dead ends, each of which looked reasonable from the error text.
+So the resilver — the part I expected to be slow — was the fastest part of the night. The command that ate the time was the *replace*, and it ate it purely because the error string pointed at a lock that didn't exist. `fuser`, `lsof`, `udevadm settle` and `-f` were all dead ends, each of which looked reasonable from the error text.
 
 The lesson I took: when a "device is busy" error survives every userspace check for a holder, stop looking for a holder. The holder can be inside a kernel module, invisible to `lsof` by construction.
 
