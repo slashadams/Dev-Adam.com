@@ -6,11 +6,11 @@ date: 2027-01-01 00:01:00 -05:00
 tags: [AI agents, hermes, self-hosting, debugging, configuration]
 devto: true
 bsky: |
-  One agent profile could search the web fine. Every URL fetch came back "search-only backend cannot extract."
+  One agent profile could search the web fine. Every URL fetch failed: "search-only backend cannot extract."
 
-  Search and extraction are separate capabilities, and per-profile config doesn't inherit the main profile's — so it had fallen back to a search-only backend.
+  Search and extraction are separate capabilities — per-profile config doesn't inherit the main profile's, so it fell back to a search-only backend.
 
-  The one-line fix.
+  One line to fix it.
 ---
 
 I run a handful of AI agent profiles off one machine — a main one I use every day, plus smaller ones with their own personalities and tool access: an ops agent, a project one, a gaming companion I talk to about whatever I'm playing.
