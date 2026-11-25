@@ -6,9 +6,9 @@ date: 2027-01-03 00:01:00 -05:00
 tags: [self-hosting, monitoring, homelab, ai-agents, developer-tools]
 devto: true
 bsky: |
-  My dead-man's switch could never fire. I only found out by building a status card on top of it.
+  My dead-man's switch could never fire — I only found out by building a status card on top of it.
 
-  It anchored "overdue" on the latest slot, not the last ping — so a 15-minute check with a 20-minute grace had a deadline always in the future. A job silent three hours read healthy.
+  It anchored "overdue" on the latest slot, not the last ping. For a 15-minute check, the deadline stayed ahead — so hours of silence read as healthy.
 
   Link in bio.
 ---
